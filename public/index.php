@@ -1,0 +1,82 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/../app/bootstrap.php';
+
+$demoUrl = 'barberia.php?b=barberia-demo';
+$whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi barbería.');
+?>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OnlyFive crea páginas web para barberías: servicios, perfiles, horarios y reservas en un solo lugar.">
+  <meta name="theme-color" content="#f3eee5">
+  <title>OnlyFive — Webs para barberías</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="inicio">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="nav-link" href="#inicio">Inicio</a>
+      <a class="nav-link" href="#solucion">Qué incluye</a>
+      <a class="nav-link" href="#contacto">Contacto</a>
+    </nav>
+    <a class="wordmark" href="#inicio" aria-label="OnlyFive, inicio">ONLYFIVE</a>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <div class="hero-image image-frame"><img src="assets/barberia.png" alt="Barbero realizando un corte en una barbería de barrio"></div>
+      <div class="burst">Web para<br>tu barbería</div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Soluciones web para barberías de barrio</p>
+        <h1>Tu barbería,<br>más visible<br><em>y organizada.</em></h1>
+        <p class="hero-lead">Una página para mostrar tus servicios, presentar a tus barberos y facilitar las reservas de tus clientes.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="https://wa.me/?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener">Cotiza por WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="<?= e($demoUrl) ?>">Ver ejemplo de barbería <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">01 <span>—</span> LIMA, PERÚ</div>
+    </section>
+
+    <div class="ticker" aria-label="Servicios, barberos y reservas"><div class="ticker-track" aria-hidden="true">
+      <span>ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b> ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b></span>
+      <span>ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b> ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b></span>
+    </div></div>
+
+    <section class="intro wrap" id="solucion">
+      <div class="intro-heading reveal"><span class="eyebrow">Una web hecha para tu negocio</span><h2>Lo que tus clientes necesitan, <em>en un solo lugar.</em></h2></div>
+      <div class="intro-visual reveal"><img src="assets/barbero-perfil.png" alt="Barbero en su local, listo para atender"><div class="visual-note">Tu equipo<br>también cuenta.</div></div>
+      <div class="intro-copy reveal"><p>Presenta tu barbería como es: con tus precios, tus horarios y las personas que hacen cada corte.</p><a class="button button-outline" href="<?= e($demoUrl) ?>">Explorar una plantilla <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="features wrap" aria-labelledby="features-title">
+      <div class="section-heading reveal"><p class="eyebrow">Una página clara y práctica</p><h2 id="features-title">Haz visible<br>tu barbería.</h2><p class="section-note">Diseñada para verse bien en el celular y facilitar que tus clientes encuentren lo que buscan.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card reveal"><span class="feature-num">01</span><div class="icon-cut" aria-hidden="true">✂</div><h3>Servicios<br>y precios</h3><p>Tu catálogo ordenado para que el cliente elija con claridad.</p></article>
+        <article class="feature-card feature-card-dark reveal"><span class="feature-num">02</span><div class="icon-person" aria-hidden="true">◉</div><h3>Perfiles<br>de barberos</h3><p>Presenta al equipo, sus especialidades y su trabajo.</p></article>
+        <article class="feature-card reveal"><span class="feature-num">03</span><div class="icon-clock" aria-hidden="true">◷</div><h3>Horarios<br>y reservas</h3><p>Ayuda a organizar la agenda y recibir solicitudes de cita.</p></article>
+      </div>
+    </section>
+
+    <section class="process wrap" aria-labelledby="process-title">
+      <div class="process-top reveal"><p class="eyebrow">De la idea a tu página</p><h2 id="process-title">Un proceso<br>sin vueltas.</h2><p>Nos cuentas lo que necesitas. Personalizamos la web contigo y la dejamos lista para compartir.</p></div>
+      <div class="process-list">
+        <div class="process-row reveal"><span>01</span><h3>Conversamos</h3><p>Conocemos tu barbería y cómo trabajas.</p><b aria-hidden="true">↗</b></div>
+        <div class="process-row reveal"><span>02</span><h3>Personalizamos</h3><p>Adaptamos nombre, colores, servicios y equipo.</p><b aria-hidden="true">↗</b></div>
+        <div class="process-row reveal"><span>03</span><h3>La ponemos en marcha</h3><p>Revisamos juntos el contenido antes de compartirla.</p><b aria-hidden="true">↗</b></div>
+      </div>
+    </section>
+
+    <section class="contact wrap" id="contacto">
+      <div class="contact-image reveal"><img src="assets/barberia.png" alt="Interior cálido de una barbería"></div>
+      <div class="contact-card reveal"><p class="eyebrow">OnlyFive · Lima</p><h2>Cuéntanos<br>cómo es<br><em>tu barbería.</em></h2><p>Hablemos de los servicios, el equipo y la forma de organizar las citas.</p><a class="button button-light" href="https://wa.me/?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer class="footer wrap"><a class="footer-brand" href="#inicio">ONLYFIVE</a><span>Soluciones web para barberías · Lima, Perú</span><a href="<?= e($demoUrl) ?>">Ver plantilla de ejemplo ↗</a></footer>
+  <div class="checker" aria-hidden="true"></div>
+</body>
+</html>
