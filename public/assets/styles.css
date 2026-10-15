@@ -9,7 +9,7 @@
 .reveal{opacity:0;transform:translateY(26px);clip-path:inset(0 0 10%);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),clip-path .7s ease}.reveal.is-visible{opacity:1;transform:translateY(0);clip-path:inset(0)}.feature-card:nth-child(2){transition-delay:.1s}.feature-card:nth-child(3){transition-delay:.2s}.process-row:nth-child(2){transition-delay:.09s}.process-row:nth-child(3){transition-delay:.18s}
 @keyframes photoReveal{from{transform:scale(1.07);filter:brightness(.7)}to{transform:scale(1);filter:brightness(1)}}@keyframes floatBadge{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-9px)}}@keyframes marquee{to{transform:translateX(-50%)}}
 @media(max-width:760px){:root{--gutter:18px}.wordmark{font-size:58px;margin:15px auto 18px}.hero-image{height:430px;border-radius:6px 6px 42px 6px}.hero-copy{left:24px;right:20px;bottom:38px}.hero h1{font-size:clamp(59px,14vw,86px)}.hero-index{right:4px}.burst{width:84px;left:-7px;top:20px;font-size:10px}.hero-actions{gap:13px}.button{padding:15px 16px}.ticker{margin-bottom:65px}.intro{grid-template-columns:1fr;gap:18px;margin-bottom:75px}.intro-heading,.intro-visual,.intro-copy{grid-column:1;grid-row:auto}.intro-heading h2{font-size:57px}.intro-visual{height:370px;max-width:470px;margin-left:auto;width:90%}.intro-copy{max-width:510px}.section-heading{display:block}.section-heading h2{font-size:72px;margin-bottom:10px}.section-note{max-width:440px}.feature-grid{grid-template-columns:1fr;gap:8px}.feature-card,.feature-card:nth-child(2){min-height:230px;transform:none}.feature-card:hover,.feature-card:nth-child(2):hover{transform:translateY(-5px)}.feature-card h3{font-size:48px;margin:29px 0 10px}.icon-cut,.icon-person,.icon-clock{top:34px}.process{grid-template-columns:1fr;gap:22px}.process-top{position:static}.process-top h2{font-size:66px}.process-row{grid-template-columns:35px 1fr 20px;gap:10px;padding:17px 0}.process-row p{grid-column:2;grid-row:2}.process-row b{grid-column:3;grid-row:1/3}.contact{grid-template-columns:1fr}.contact-image{min-height:290px;height:55vw}.contact-card{padding:31px 23px}.contact-card h2{font-size:68px}.footer{flex-wrap:wrap;padding:0 0 18px}.footer-brand{width:100%;font-size:57px}.footer span{flex:1}.shop-header{align-items:flex-start}.shop-logo{font-size:25px}.shop-nav{gap:13px}.shop-nav a{font-size:8px;letter-spacing:.08em}.shop-hero{height:600px}.shop-hero-photo{inset:0 0 70px 8%;border-radius:5px 5px 40px 5px}.shop-hero-content{top:auto;bottom:0;transform:none;width:86%;padding:23px;box-shadow:7px 8px 0 var(--tan)}.shop-hero h1{font-size:76px}.shop-hero-content>p:not(.eyebrow){font-size:13px}.demo-label{right:0;bottom:41px;font-size:7px}.shop-services{grid-template-columns:1fr;gap:16px}.shop-services .section-heading{position:static}.shop-services .section-heading h2{font-size:67px}.barber-showcase{grid-template-columns:1fr}.barber-photo{height:390px}.barber-copy{padding:24px}.barber-copy h2{font-size:68px}.booking{grid-template-columns:1fr;gap:18px}.booking-intro h2{font-size:75px}.shop-footer>.wrap{flex-wrap:wrap}.shop-footer>.wrap>*{flex:1 1 40%}}
-@media(max-width:420px){.nav-link{font-size:9px;letter-spacing:.08em}.wordmark{font-size:49px}.hero-image{height:390px}.hero h1{font-size:57px}.hero-lead{font-size:13px}.hero-actions{align-items:flex-start;flex-direction:column}.text-link{margin-left:2px}.intro-heading h2{font-size:49px}.intro-visual{height:315px}.section-heading h2{font-size:63px}.shop-nav{gap:9px}.shop-nav a{font-size:7px}.shop-logo{font-size:22px}.shop-hero{height:535px}.shop-hero h1{font-size:65px}.form-pair{grid-template-columns:1fr 1fr;gap:8px}}
+@media(max-width:420px){.nav-link{font-size:9px;letter-spacing:.08em}.wordmark{font-size:49px}.hero-image{height:390px}.hero h1{font-size:57px}.hero-lead{font-size:13px}.hero-actions{align-items:flex-start;flex-direction:column}.text-link{margin-left:2px}.intro-heading h2{font-size:49px}.intro-visual{height:315px}.section-heading h2{font-size:63px}.shop-nav{gap:9px}.shop-nav a{font-size:7px}.shop-logo{font-size:22px}.shop-hero{height:535px}.shop-hero h1{font-size:65px}.form-pair{grid-template-columns:1fr;gap:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none;clip-path:none}}
 
 /* Accesibilidad y gestión de la barbería */
@@ -244,7 +244,7 @@ picture{display:block;width:100%;height:100%}
 .booking-preview-note h3{font:700 32px/.9 var(--display);text-transform:uppercase;margin:0 0 12px}
 .booking-preview-note>p:last-child{max-width:390px;margin:0;color:var(--muted);font-size:13px;line-height:1.55}
 @media(max-width:760px){.template-detail-grid{grid-template-columns:1fr;gap:24px}.template-demo-heading{display:block}.template-demo-heading>p{margin-top:15px;max-width:500px}.template-detail-contact{align-items:flex-start;flex-direction:column}.template-demo-frame{height:1700px}}
-@media(max-width:560px){.template-detail-intro{padding-top:34px}.template-detail-copy h1{font-size:clamp(66px,17vw,91px)}.template-detail-summary{padding:24px}.template-demo-heading h2{font-size:62px}.template-demo-label{font-size:8px}.template-detail-contact h2{font-size:56px}}
+@media(max-width:560px){.template-detail-intro{padding-top:34px}.template-detail-copy h1{font-size:clamp(56px,17vw,91px)}.template-detail-summary{padding:24px}.template-demo-heading h2{font-size:62px}.template-demo-label{font-size:8px}.template-detail-contact h2{font-size:56px}}
 
 /* Vistas diferenciadas para cada plantilla */
 .template-feature-list{display:flex;flex-wrap:wrap;gap:7px;padding:0;margin:0;list-style:none}
@@ -307,9 +307,9 @@ picture{display:block;width:100%;height:100%}
   .template-preview-urban>img{left:40%;width:60%}
   .urban-preview-copy{top:36%;width:64%}
   .urban-preview-copy strong{font-size:clamp(38px,12vw,54px)}
-  .minimal-preview-copy{right:44%;top:43%}
-  .minimal-preview-copy strong{font-size:clamp(31px,9vw,40px)}
-  .urban-preview-stamp{width:54px;font-size:7px}
+  .urban-preview-stamp{top:40%;bottom:auto;width:54px;font-size:7px}
+  .minimal-preview-copy{right:40%;top:40%}
+  .minimal-preview-copy strong{font-size:clamp(25px,8vw,38px)}
 }
 
 /* Cada muestra tiene una composición propia, además de su paleta. */
@@ -360,6 +360,7 @@ picture{display:block;width:100%;height:100%}
 .shop-page.template-urbana .barber-name{border-color:rgba(237,255,56,.25)}
 .shop-page.template-urbana .barber-name span,.shop-page.template-urbana .barber-name small{color:#c1c7c3}
 .shop-page.template-urbana .booking-form,.shop-page.template-urbana .booking-preview-note{border:1px solid var(--yellow);background:var(--cream);box-shadow:8px 8px 0 rgba(237,255,56,.15)}
+.shop-page.template-urbana .booking-form input,.shop-page.template-urbana .booking-form select{border-color:rgba(237,255,56,.4);background:#111416;color:#f6f4eb;color-scheme:dark}
 .shop-page.template-urbana .booking-form label,.shop-page.template-urbana .booking-preview-note h3{color:var(--paper)}
 .shop-page.template-urbana .booking-form .button-dark{background:var(--yellow);color:#111416}
 .shop-page.template-urbana .shop-footer{border-color:var(--yellow)}
@@ -398,16 +399,21 @@ picture{display:block;width:100%;height:100%}
 .shop-page.template-minimal .booking-form .button-dark{border:0;border-radius:24px;background:#41684e;color:#fff}
 .shop-page.template-minimal .shop-footer{border-color:var(--line)}
 @media(max-width:760px){
+  .shop-page .shop-header{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:center}
+  .shop-page .shop-nav{width:100%;justify-content:space-between;gap:8px}
+  .shop-page .shop-nav a{white-space:nowrap}
   .shop-page.template-clasica .shop-hero-photo{inset:0 0 70px 7%;border-width:5px;border-radius:180px 6px 6px 6px}
   .shop-page.template-clasica .shop-hero-content{left:0;bottom:0;width:87%;padding:27px 25px}
-  .shop-page.template-clasica .shop-hero h1{font-size:70px}
+  .shop-page.template-clasica .shop-hero h1{font-size:clamp(52px,17vw,70px)}
   .shop-page.template-clasica .barber-photo{height:350px;margin:0 auto;width:90%}
   .shop-page.template-urbana .shop-hero-photo{inset:0 0 70px 8%;clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}
   .shop-page.template-urbana .shop-hero-content{left:0;bottom:0;top:auto;width:88%;padding:24px 22px;background:#171b1d;border-left:5px solid var(--yellow);box-shadow:7px 7px 0 var(--yellow)}
-  .shop-page.template-urbana .shop-hero h1{font-size:clamp(72px,16vw,98px)}
+  .shop-page.template-urbana .shop-hero h1{font-size:clamp(52px,14vw,98px)}
   .shop-page.template-minimal .shop-hero{height:auto;min-height:0;grid-template-columns:1fr;gap:22px;margin-top:18px}
   .shop-page.template-minimal .shop-hero-content{grid-column:1;grid-row:1;text-align:center;max-width:520px;margin-inline:auto}
   .shop-page.template-minimal .shop-hero h1{font-size:clamp(53px,12vw,74px)}
+  .shop-page.template-minimal .shop-nav{gap:6px}
+  .shop-page.template-minimal .shop-nav a{padding:9px 10px;font-size:9px}
   .shop-page.template-minimal .shop-hero-photo{grid-column:1;grid-row:2;width:88%;height:390px;margin:0 auto;border-radius:48% 48% 10px 10px}
   .shop-page.template-minimal .barber-photo{height:360px;width:88%;margin:0 auto}
   .shop-page.template-minimal .barber-copy{border-radius:20px}
