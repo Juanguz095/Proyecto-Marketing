@@ -148,10 +148,6 @@
 .shop-page.template-minimal{--paper:#edf2ec;--cream:#fff;--ink:#1c2b21;--muted:#657367;--tan:#c7d7c9;--gold:#41684e;--yellow:#dce98e;--line:rgba(28,43,33,.2)}
 .shop-page.template-minimal .shop-hero-photo{border-radius:0 0 55px 0}
 .shop-page.template-minimal .shop-hero-content{box-shadow:9px 10px 0 #c5d7c7}
-.preview-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:clamp(12px,3vw,28px);overflow-x:auto;white-space:nowrap;padding:10px max(var(--gutter),calc((100% - var(--max))/2));background:var(--ink);color:var(--paper);scrollbar-width:none}
-.preview-nav::-webkit-scrollbar{display:none}
-.preview-nav a{flex:0 0 auto;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit}
-.preview-nav a:hover,.preview-nav a[aria-current="page"]{color:var(--yellow)}
 @media(max-width:900px){.templates-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.templates-intro{padding-top:42px}.templates-intro h1{font-size:clamp(61px,18vw,88px)}.templates-grid{grid-template-columns:1fr;gap:18px;padding-bottom:66px}.template-card-preview{aspect-ratio:1.28;min-height:250px}.template-card-body{padding:19px}.template-card-heading h2{font-size:31px}.template-card-body>p{min-height:0}.templates-contact h2{font-size:66px}}
 @media(max-width:800px){
