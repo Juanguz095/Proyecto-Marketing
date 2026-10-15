@@ -60,14 +60,45 @@ $dateMax = (new DateTimeImmutable('today', new DateTimeZone('America/Lima')))->m
 $whatsAppLink = is_string($shop['whatsapp'] ?? null)
     ? whatsapp_url($shop['whatsapp'], 'Hola, quisiera consultar sobre una cita en ' . $shop['nombre'] . '.')
     : null;
+$coverPhoto = $settings['foto_portada'] ?: 'assets/barberia.png';
+$teamPhoto = $settings['foto_barbero'] ?: 'assets/barbero-perfil.png';
+$coverIsDemoPhoto = $coverPhoto === 'assets/barberia.png';
+$teamIsDemoPhoto = $teamPhoto === 'assets/barbero-perfil.png';
+$address = trim((string) ($shop['direccion'] ?? ''));
+$genericAddress = strcasecmp($address, 'Lima, Perú') === 0 || strcasecmp($address, 'Lima, Peru') === 0;
+$mapsUrl = $address !== '' && !$genericAddress
+    ? 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode($address)
+    : null;
+$shopDescription = trim(strip_tags((string) ($shop['descripcion'] ?: 'Servicios, barberos y reservas de ' . $shop['nombre'] . '.')));
+$shopMetaDescription = preg_replace('/^(.{0,155}).*/us', '$1', $shopDescription) ?? $shopDescription;
+$businessStructuredData = [
+    '@context' => 'https://schema.org',
+    '@type' => 'BarberShop',
+    'name' => $shop['nombre'],
+    'description' => $shop['descripcion'] ?: 'Servicios de barbería y reservas.',
+];
+if (is_string($shop['whatsapp']) && trim($shop['whatsapp']) !== '') {
+    $businessStructuredData['telephone'] = $shop['whatsapp'];
+}
+if ($address !== '' && !$genericAddress) {
+    $businessStructuredData['address'] = $address;
+}
 ?>
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Servicios, barberos y reservas de <?= e($shop['nombre']) ?>.">
+  <meta name="description" content="<?= e($shopMetaDescription) ?>">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="business.business">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:site_name" content="OnlyFive">
+  <meta property="og:title" content="<?= e($shop['nombre']) ?> · Barbería">
+  <meta property="og:description" content="Servicios, equipo y reservas de <?= e($shop['nombre']) ?>.">
+  <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#f3eee5">
   <title><?= e($shop['nombre']) ?> · Barbería</title>
+  <script type="application/ld+json"><?= json_encode($businessStructuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="stylesheet" href="assets/styles.css"><script src="assets/app.js" defer></script>
 </head>
 <body class="shop-page template-<?= e($template) ?>">
@@ -79,7 +110,7 @@ $whatsAppLink = is_string($shop['whatsapp'] ?? null)
   </header>
   <main id="contenido">
     <section class="shop-hero wrap">
-      <div class="shop-hero-photo image-frame"><img src="<?= e($settings['foto_portada'] ?: 'assets/barberia.png') ?>" alt="Interior de <?= e($shop['nombre']) ?>"></div>
+      <div class="shop-hero-photo image-frame"><?php if ($coverIsDemoPhoto): ?><picture><source type="image/webp" srcset="assets/barberia-720.webp 720w, assets/barberia-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), 70vw"><img src="assets/barberia.png" alt="Interior de <?= e($shop['nombre']) ?>" fetchpriority="high" decoding="async"></picture><?php else: ?><img src="<?= e($coverPhoto) ?>" alt="Interior de <?= e($shop['nombre']) ?>" fetchpriority="high" decoding="async"><?php endif; ?></div>
       <div class="shop-hero-content reveal"><span class="eyebrow">Corte · Estilo · Comunidad</span><h1>Más que<br>un corte.</h1><p><?= e($shop['descripcion'] ?: 'Un buen corte empieza con una buena conversación.') ?></p><a class="button button-dark" href="#reserva">Reserva tu cita <span aria-hidden="true">↓</span></a></div>
       <?php if ($shop['slug'] === 'barberia-demo'): ?><span class="demo-label">PLANTILLA DE EJEMPLO · REEMPLAZAR DATOS</span><?php endif; ?>
     </section>
@@ -93,7 +124,7 @@ $whatsAppLink = is_string($shop['whatsapp'] ?? null)
       </div>
     </section>
     <section class="barber-showcase wrap" id="equipo">
-      <div class="barber-photo reveal"><img src="<?= e($settings['foto_barbero'] ?: 'assets/barbero-perfil.png') ?>" alt="Equipo de <?= e($shop['nombre']) ?>"></div>
+      <div class="barber-photo reveal"><?php if ($teamIsDemoPhoto): ?><picture><source type="image/webp" srcset="assets/barbero-perfil-720.webp 480w, assets/barbero-perfil-1440.webp 960w" sizes="(max-width: 760px) 100vw, 50vw"><img src="assets/barbero-perfil.png" alt="Equipo de <?= e($shop['nombre']) ?>" loading="lazy" decoding="async"></picture><?php else: ?><img src="<?= e($teamPhoto) ?>" alt="Equipo de <?= e($shop['nombre']) ?>" loading="lazy" decoding="async"><?php endif; ?></div>
       <div class="barber-copy reveal"><p class="eyebrow">Las manos detrás del corte</p><h2>Conoce<br>a tu barbero.</h2>
         <?php foreach ($barbers as $barber): ?>
           <div class="barber-name"><strong><?= e($barber['nombre']) ?></strong><span><?= e($barber['especialidad'] ?: 'Barbero') ?></span>
@@ -124,6 +155,6 @@ $whatsAppLink = is_string($shop['whatsapp'] ?? null)
       <?php if ($whatsAppLink): ?><a class="booking-contact-link" href="<?= e($whatsAppLink) ?>" target="_blank" rel="noopener noreferrer">¿Tienes una consulta? Escríbenos por WhatsApp ↗</a><?php endif; ?>
     </section>
   </main>
-  <footer class="shop-footer"><div class="wrap"><a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a><span><?= e($shop['direccion'] ?: 'Lima, Perú') ?></span><a href="privacidad.php?b=<?= e($shop['slug']) ?>">Privacidad ↗</a><a href="plantillas.php">Ver más plantillas ↗</a></div><div class="checker" aria-hidden="true"></div></footer>
+  <footer class="shop-footer"><div class="wrap"><a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a><span><?= e($shop['direccion'] ?: 'Lima, Perú') ?></span><?php if ($mapsUrl): ?><a href="<?= e($mapsUrl) ?>" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a><?php endif; ?><a href="privacidad.php?b=<?= e($shop['slug']) ?>">Privacidad ↗</a><a href="plantillas.php">Ver más plantillas ↗</a></div><div class="checker" aria-hidden="true"></div></footer>
 </body>
 </html>

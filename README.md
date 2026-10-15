@@ -5,13 +5,16 @@ Aplicación PHP y MySQL para mostrar una barbería, recibir solicitudes de cita 
 ## Funciones
 
 - Página pública de OnlyFive en `public/index.php`.
-- Galería propia de tres plantillas en `public/plantillas.php`, con vistas de ejemplo en estilo clásico, urbano y minimalista.
+- Galería propia de tres plantillas en `public/plantillas.php`, con composiciones clásicas, urbanas y minimalistas diferentes.
+- Secciones de paquetes con cotización personalizada y preguntas frecuentes; no se muestran precios inventados.
 - Página de la barbería en `public/barberia.php?b=barberia-demo`.
 - Horarios disponibles calculados según servicio, duración, horario del barbero y reservas pendientes o confirmadas.
 - Reserva con validación de horario y conflictos en el servidor, token CSRF y consentimiento de privacidad registrado.
 - Panel privado en `public/admin/` para confirmar, cancelar y marcar reservas como atendidas. Incluye enlaces de WhatsApp con mensajes preparados para que la persona encargada los revise y envíe.
 - Configuración de datos de la barbería, fotos, servicios, precios, equipo, horarios semanales y aviso de privacidad.
 - Protección de inicio de sesión, bloqueo temporal tras cinco intentos fallidos y cierre de sesión por inactividad.
+- Metadatos para compartir enlaces y datos estructurados de cada barbería, generados con su información configurada.
+- Imágenes de muestra optimizadas en WebP y carga diferida para fotos fuera de la primera pantalla.
 
 Los mensajes de WhatsApp se preparan, pero no se envían solos. Para automatizar mensajes se necesitaría integrar la API oficial de WhatsApp Business.
 
@@ -93,7 +96,7 @@ Con XAMPP, inicia MySQL y ejecuta el servidor PHP integrado desde la carpeta del
 
 Inicia sesión en `public/admin/` y abre **Configurar la página**. Ahí puedes cambiar el nombre, descripción, dirección, WhatsApp y aviso de privacidad; cargar fotos JPG, PNG o WebP de hasta 5 MB; editar o agregar servicios y barberos; y actualizar sus horarios. Las imágenes cargadas se guardan en `public/uploads/`, por lo que el usuario del servidor PHP necesita permiso de escritura en esa carpeta.
 
-Los registros iniciales son ejemplos. Actualízalos antes de compartir la página con clientes. Si el aviso de privacidad queda vacío, se muestra un texto general que todavía debe revisarse con la persona responsable del negocio.
+Los registros iniciales son ejemplos. Actualízalos antes de compartir la página con clientes. Si el aviso de privacidad queda vacío, se muestra un texto general que todavía debe revisarse con la persona responsable del negocio. Las cotizaciones, el dominio y el alojamiento se deben acordar con cada cliente antes de iniciar el trabajo.
 
 ## Privacidad y seguridad
 

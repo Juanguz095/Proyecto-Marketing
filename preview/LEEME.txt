@@ -1,0 +1,7 @@
+VISTA PREVIA VISUAL DE ONLYFIVE
+
+Abre index.html en tu navegador. La página incluye los paquetes y las preguntas frecuentes. En Plantillas puedes comparar los tres estilos y abrir la página de ejemplo con cada variante.
+
+La barra superior permite explorar también la página de barbería, el panel de reservas y la configuración.
+
+Esta carpeta muestra pantallas de ejemplo y no necesita instalar PHP ni MySQL. Los botones y reservas son solo visuales; las funciones reales se ejecutan en la aplicación PHP con su base de datos.
