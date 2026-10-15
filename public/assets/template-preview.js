@@ -8,25 +8,25 @@
         number: '01',
         name: 'La clásica',
         label: 'Tradición renovada',
-        description: 'Tonos cálidos, fotografía protagonista y una presentación cercana para una barbería de barrio.',
+        description: 'Una composición editorial con tonos tierra, tipografía con carácter y fotografía enmarcada en arco.',
         audience: 'Para barberías que buscan una imagen familiar y atemporal.',
-        features: ['Foto protagonista', 'Tonos cálidos'],
+        features: ['Paleta tierra', 'Imagen en arco'],
       },
       urbana: {
         number: '02',
         name: 'Urbana',
         label: 'Contraste y energía',
-        description: 'Una propuesta oscura con acentos amarillos para destacar un estilo moderno y directo.',
+        description: 'Un diseño de fondo oscuro, titulares grandes y diagonales con acentos amarillo eléctrico.',
         audience: 'Para negocios que quieren una identidad visual intensa y llamativa.',
-        features: ['Alto contraste', 'Estilo directo'],
+        features: ['Fondo oscuro', 'Formas diagonales'],
       },
       minimal: {
         number: '03',
         name: 'Minimal',
         label: 'Simple y natural',
-        description: 'Espacios limpios, verdes suaves y una lectura tranquila para una marca contemporánea.',
+        description: 'Una estructura abierta de fondo claro, tipografía ligera y detalles verdes con formas suaves.',
         audience: 'Para marcas que prefieren una presentación serena y ordenada.',
-        features: ['Espacios limpios', 'Verde natural'],
+        features: ['Espacios abiertos', 'Paleta verde'],
       },
     };
     const params = new URLSearchParams(window.location.search);
@@ -50,6 +50,10 @@
     document.title = `${template.name} · Plantillas OnlyFive`;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = template.description;
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    if (socialTitle) socialTitle.content = `${template.name} · Plantillas OnlyFive`;
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    if (socialDescription) socialDescription.content = template.description;
   }
 
   const frame = detail.querySelector('[data-template-frame]');

@@ -311,3 +311,104 @@ picture{display:block;width:100%;height:100%}
   .minimal-preview-copy strong{font-size:clamp(31px,9vw,40px)}
   .urban-preview-stamp{width:54px;font-size:7px}
 }
+
+/* Cada muestra tiene una composición propia, además de su paleta. */
+.shop-page.template-clasica{--paper:#f4ead9;--cream:#fff8ec;--ink:#352219;--muted:#725c4c;--tan:#d4b18a;--gold:#8f5428;--yellow:#d6ae70;--line:rgba(53,34,25,.2)}
+.shop-page.template-clasica .shop-header{border-bottom:3px double var(--gold)}
+.shop-page.template-clasica .shop-logo{letter-spacing:.055em}
+.shop-page.template-clasica .shop-nav a{font-family:Georgia,'Times New Roman',serif;font-size:12px;letter-spacing:.04em}
+.shop-page.template-clasica .shop-hero-photo{inset:0 0 0 22%;border:7px solid var(--tan);border-radius:230px 6px 6px 6px;clip-path:none}
+.shop-page.template-clasica .shop-hero-photo:after{background:linear-gradient(90deg,rgba(53,34,25,.08),rgba(53,34,25,.35))}
+.shop-page.template-clasica .shop-hero-content{background:var(--cream);color:var(--ink);outline:1px solid var(--gold);outline-offset:-10px;box-shadow:10px 12px 0 var(--tan)}
+.shop-page.template-clasica .shop-hero h1,.shop-page.template-clasica .shop-services .section-heading h2,.shop-page.template-clasica .barber-copy h2,.shop-page.template-clasica .booking-intro h2{font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:-.045em;text-transform:none}
+.shop-page.template-clasica .shop-hero h1{font-size:clamp(58px,8vw,94px);line-height:.88}
+.shop-page.template-clasica .shop-hero-content .eyebrow{color:var(--gold)}
+.shop-page.template-clasica .shop-hero-content>p:not(.eyebrow){color:var(--muted)}
+.shop-page.template-clasica .shop-hero-content .button-dark{background:var(--ink);border-radius:24px 2px 24px 2px}
+.shop-page.template-clasica .demo-label{background:var(--ink);color:var(--paper);padding:7px 12px;letter-spacing:.17em}
+.shop-page.template-clasica .service-list{border-top:3px double var(--gold)}
+.shop-page.template-clasica .service-row{border-bottom:1px dotted var(--gold);padding:24px 8px}
+.shop-page.template-clasica .service-row h3{font-family:Georgia,'Times New Roman',serif;font-size:29px;text-transform:none}
+.shop-page.template-clasica .service-row>strong{color:var(--gold)}
+.shop-page.template-clasica .barber-showcase{background:#e7d5bd;border:1px solid var(--tan);padding:14px}
+.shop-page.template-clasica .barber-photo{height:clamp(350px,42vw,500px);border:8px solid var(--cream);border-radius:180px 180px 4px 4px}
+.shop-page.template-clasica .barber-photo img{filter:sepia(.18) saturate(.78)}
+.shop-page.template-clasica .barber-copy h2{font-size:clamp(52px,7vw,82px)}
+.shop-page.template-clasica .booking-form{border:3px double var(--gold);box-shadow:8px 9px 0 var(--tan)}
+
+.shop-page.template-urbana{--paper:#111416;--cream:#1c2124;--ink:#f6f4eb;--muted:#b7bdbb;--tan:#343a3c;--gold:#ffd400;--yellow:#edff38;--line:rgba(237,255,56,.3)}
+.shop-page.template-urbana .shop-header{border-bottom:1px solid var(--yellow)}
+.shop-page.template-urbana .shop-logo{color:var(--yellow);font-size:35px;letter-spacing:.08em}
+.shop-page.template-urbana .shop-nav a{color:var(--paper);font-size:10px;letter-spacing:.16em}
+.shop-page.template-urbana .shop-nav a:after{background:var(--yellow);height:3px}
+.shop-page.template-urbana .shop-hero{background-image:repeating-linear-gradient(0deg,transparent 0,transparent 59px,rgba(237,255,56,.045) 60px)}
+.shop-page.template-urbana .shop-hero-photo{inset:0 0 0 39%;border:0;border-radius:0;clip-path:polygon(17% 0,100% 0,100% 100%,0 100%)}
+.shop-page.template-urbana .shop-hero-photo:after{background:linear-gradient(90deg,rgba(17,20,22,.12),rgba(17,20,22,.72))}
+.shop-page.template-urbana .shop-hero-photo img{filter:grayscale(1) contrast(1.2)}
+.shop-page.template-urbana .shop-hero-content{left:0;width:57%;padding:24px 28px;border-left:6px solid var(--yellow);background:transparent;color:var(--paper);box-shadow:none}
+.shop-page.template-urbana .shop-hero h1{font-size:clamp(76px,12vw,142px);font-weight:900;letter-spacing:-.035em;line-height:.73;text-transform:uppercase}
+.shop-page.template-urbana .shop-hero-content .eyebrow{color:var(--yellow)}
+.shop-page.template-urbana .shop-hero-content>p:not(.eyebrow){color:#d5d8d1}
+.shop-page.template-urbana .shop-hero-content .button-dark{background:var(--yellow);color:#111416;border:0;font-weight:900}
+.shop-page.template-urbana .demo-label{right:0;bottom:-14px;background:var(--yellow);color:#111416;padding:8px 12px;font-weight:900}
+.shop-page.template-urbana .shop-services .section-heading h2,.shop-page.template-urbana .barber-copy h2,.shop-page.template-urbana .booking-intro h2{font-weight:900;letter-spacing:-.04em;text-transform:uppercase}
+.shop-page.template-urbana .service-list{border:0}
+.shop-page.template-urbana .service-row{margin-bottom:8px;padding:19px 22px;border:1px solid rgba(237,255,56,.24);border-left:5px solid var(--yellow);background:var(--cream)}
+.shop-page.template-urbana .service-row>strong{color:var(--yellow);font-size:23px}
+.shop-page.template-urbana .barber-showcase{border:1px solid var(--yellow);border-left:9px solid var(--yellow);background:#1b2022;color:var(--paper)}
+.shop-page.template-urbana .barber-photo img{filter:grayscale(1) contrast(1.18)}
+.shop-page.template-urbana .barber-name{border-color:rgba(237,255,56,.25)}
+.shop-page.template-urbana .barber-name span,.shop-page.template-urbana .barber-name small{color:#c1c7c3}
+.shop-page.template-urbana .booking-form,.shop-page.template-urbana .booking-preview-note{border:1px solid var(--yellow);background:var(--cream);box-shadow:8px 8px 0 rgba(237,255,56,.15)}
+.shop-page.template-urbana .booking-form label,.shop-page.template-urbana .booking-preview-note h3{color:var(--paper)}
+.shop-page.template-urbana .booking-form .button-dark{background:var(--yellow);color:#111416}
+.shop-page.template-urbana .shop-footer{border-color:var(--yellow)}
+
+.shop-page.template-minimal{--paper:#f3f6f0;--cream:#fff;--ink:#26362c;--muted:#718078;--tan:#d9e5d7;--gold:#587b61;--yellow:#dce8b6;--line:rgba(38,54,44,.14)}
+.shop-page.template-minimal .shop-header{padding-top:28px;border:0}
+.shop-page.template-minimal .shop-logo{font:700 17px/1.1 var(--body);letter-spacing:.14em}
+.shop-page.template-minimal .shop-logo small{font-size:8px;letter-spacing:.28em}
+.shop-page.template-minimal .shop-nav{gap:9px}
+.shop-page.template-minimal .shop-nav a{padding:10px 14px;border:1px solid var(--line);border-radius:24px;font-size:10px;letter-spacing:.02em;text-transform:none}
+.shop-page.template-minimal .shop-nav a:after{display:none}
+.shop-page.template-minimal .shop-hero{height:auto;min-height:630px;display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;gap:clamp(24px,5vw,68px);margin-top:18px;margin-bottom:clamp(68px,9vw,115px)}
+.shop-page.template-minimal .shop-hero-photo{position:relative;inset:auto;grid-column:2;grid-row:1;width:100%;height:570px;border-radius:48% 48% 12px 12px;clip-path:none;background:#e4ece1}
+.shop-page.template-minimal .shop-hero-photo:after{background:linear-gradient(0deg,rgba(34,55,39,.16),transparent 45%)}
+.shop-page.template-minimal .shop-hero-photo img{filter:saturate(.72);object-position:center 30%}
+.shop-page.template-minimal .shop-hero-content{position:relative;left:auto;top:auto;grid-column:1;grid-row:1;width:auto;transform:none;padding:0;background:transparent;color:var(--ink);box-shadow:none;text-align:left}
+.shop-page.template-minimal .shop-hero h1{font:600 clamp(53px,7.5vw,88px)/.96 var(--body);letter-spacing:-.075em;text-transform:none}
+.shop-page.template-minimal .shop-hero-content .eyebrow{color:var(--gold);letter-spacing:.12em}
+.shop-page.template-minimal .shop-hero-content>p:not(.eyebrow){color:var(--muted);font-size:16px}
+.shop-page.template-minimal .shop-hero-content .button-dark{border:0;border-radius:28px;background:#41684e;color:#fff}
+.shop-page.template-minimal .demo-label{right:2%;bottom:-14px;background:var(--yellow);color:var(--ink);padding:8px 13px;border-radius:18px}
+.shop-page.template-minimal .shop-services .section-heading h2,.shop-page.template-minimal .barber-copy h2,.shop-page.template-minimal .booking-intro h2{font:500 clamp(44px,6vw,72px)/1.04 var(--body);letter-spacing:-.065em;text-transform:none}
+.shop-page.template-minimal .service-list{border:0}
+.shop-page.template-minimal .service-row{margin-bottom:10px;padding:19px 21px;border:0;border-radius:16px;background:var(--cream)}
+.shop-page.template-minimal .service-row h3{font:600 20px/1.1 var(--body);letter-spacing:-.03em;text-transform:none}
+.shop-page.template-minimal .service-row>strong{font:600 15px var(--body);color:var(--gold)}
+.shop-page.template-minimal .barber-showcase{gap:clamp(20px,4vw,54px);align-items:center;background:transparent}
+.shop-page.template-minimal .barber-photo{height:440px;border-radius:48% 48% 12px 12px;background:var(--tan)}
+.shop-page.template-minimal .barber-photo img{filter:none}
+.shop-page.template-minimal .barber-copy{padding:clamp(25px,4vw,52px);border-radius:24px;background:#e8efe6}
+.shop-page.template-minimal .barber-name{border-color:var(--line)}
+.shop-page.template-minimal .barber-name strong{font:600 20px var(--body);text-transform:none}
+.shop-page.template-minimal .barber-name span,.shop-page.template-minimal .barber-name small{color:var(--muted)}
+.shop-page.template-minimal .booking-form,.shop-page.template-minimal .booking-preview-note{border:0;border-radius:22px;background:var(--cream);box-shadow:0 12px 35px rgba(38,54,44,.07)}
+.shop-page.template-minimal .booking-form input,.shop-page.template-minimal .booking-form select{border-color:var(--line);border-radius:11px;background:#fafcf8}
+.shop-page.template-minimal .booking-form .button-dark{border:0;border-radius:24px;background:#41684e;color:#fff}
+.shop-page.template-minimal .shop-footer{border-color:var(--line)}
+@media(max-width:760px){
+  .shop-page.template-clasica .shop-hero-photo{inset:0 0 70px 7%;border-width:5px;border-radius:180px 6px 6px 6px}
+  .shop-page.template-clasica .shop-hero-content{left:0;bottom:0;width:87%;padding:27px 25px}
+  .shop-page.template-clasica .shop-hero h1{font-size:70px}
+  .shop-page.template-clasica .barber-photo{height:350px;margin:0 auto;width:90%}
+  .shop-page.template-urbana .shop-hero-photo{inset:0 0 70px 8%;clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}
+  .shop-page.template-urbana .shop-hero-content{left:0;bottom:0;top:auto;width:88%;padding:24px 22px;background:#171b1d;border-left:5px solid var(--yellow);box-shadow:7px 7px 0 var(--yellow)}
+  .shop-page.template-urbana .shop-hero h1{font-size:clamp(72px,16vw,98px)}
+  .shop-page.template-minimal .shop-hero{height:auto;min-height:0;grid-template-columns:1fr;gap:22px;margin-top:18px}
+  .shop-page.template-minimal .shop-hero-content{grid-column:1;grid-row:1;text-align:center;max-width:520px;margin-inline:auto}
+  .shop-page.template-minimal .shop-hero h1{font-size:clamp(53px,12vw,74px)}
+  .shop-page.template-minimal .shop-hero-photo{grid-column:1;grid-row:2;width:88%;height:390px;margin:0 auto;border-radius:48% 48% 10px 10px}
+  .shop-page.template-minimal .barber-photo{height:360px;width:88%;margin:0 auto}
+  .shop-page.template-minimal .barber-copy{border-radius:20px}
+}
