@@ -5,7 +5,7 @@ Aplicación PHP y MySQL para mostrar una barbería, recibir solicitudes de cita 
 ## Funciones
 
 - Página pública de OnlyFive en `public/index.php`.
-- Galería propia de tres plantillas en `public/plantillas.php`, con composiciones clásicas, urbanas y minimalistas diferentes.
+- Galería propia de tres plantillas en `public/plantillas.php`, con fichas descriptivas y una muestra incrustada de cada diseño en `public/detalle-plantilla.php`.
 - Secciones de paquetes con cotización personalizada y preguntas frecuentes; no se muestran precios inventados.
 - Página de la barbería en `public/barberia.php?b=barberia-demo`.
 - Horarios disponibles calculados según servicio, duración, horario del barbero y reservas pendientes o confirmadas.
@@ -86,6 +86,7 @@ Abre estas direcciones:
 
 - `http://127.0.0.1:8000/` — página de OnlyFive.
 - `http://127.0.0.1:8000/plantillas.php` — galería de diseños y vistas de ejemplo.
+- `http://127.0.0.1:8000/detalle-plantilla.php?plantilla=urbana` — ficha con descripción y muestra incrustada de una plantilla.
 - `http://127.0.0.1:8000/contacto.php` — página de contacto y solicitud de cotización.
 - `http://127.0.0.1:8000/barberia.php?b=barberia-demo` — página de reservas.
 - `http://127.0.0.1:8000/admin/` — inicio de sesión del panel.

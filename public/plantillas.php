@@ -2,38 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../app/bootstrap.php';
 
-$templates = [
-    [
-        'slug' => 'clasica',
-        'number' => '01',
-        'name' => 'La clásica',
-        'label' => 'Tradición renovada',
-        'description' => 'Tonos cálidos, fotografía protagonista y una presentación cercana para una barbería de barrio.',
-        'headline' => 'Un corte con carácter.',
-        'style' => 'template-preview-classic',
-        'features' => ['Foto protagonista', 'Tonos cálidos'],
-    ],
-    [
-        'slug' => 'urbana',
-        'number' => '02',
-        'name' => 'Urbana',
-        'label' => 'Contraste y energía',
-        'description' => 'Una propuesta oscura con acentos amarillos para destacar un estilo moderno y directo.',
-        'headline' => 'Marca tu propio estilo.',
-        'style' => 'template-preview-urban',
-        'features' => ['Alto contraste', 'Estilo directo'],
-    ],
-    [
-        'slug' => 'minimal',
-        'number' => '03',
-        'name' => 'Minimal',
-        'label' => 'Simple y natural',
-        'description' => 'Espacios limpios, verdes suaves y una lectura tranquila para una marca contemporánea.',
-        'headline' => 'Lo esencial, bien hecho.',
-        'style' => 'template-preview-minimal',
-        'features' => ['Espacios limpios', 'Verde natural'],
-    ],
-];
+$templates = require __DIR__ . '/../app/template_catalog.php';
 ?>
 <!doctype html>
 <html lang="es">
@@ -68,7 +37,7 @@ $templates = [
     <section class="templates-intro wrap">
       <p class="eyebrow">Diseños para tu barbería</p>
       <h1>Encuentra tu<br><em>estilo.</em></h1>
-      <p>Explora las propuestas y abre una vista de ejemplo. Luego adaptamos colores, fotos y contenido a tu negocio.</p>
+      <p>Explora las propuestas y abre su ficha para ver la descripción y una muestra del sitio. Luego adaptamos colores, fotos y contenido a tu negocio.</p>
     </section>
 
     <section class="templates-grid wrap" aria-label="Galería de plantillas">
@@ -96,7 +65,7 @@ $templates = [
             <div class="template-card-heading"><span><?= e($templateOption['number']) ?> / 03</span><h2><?= e($templateOption['name']) ?></h2></div>
             <p><?= e($templateOption['description']) ?></p>
             <ul class="template-feature-list"><?php foreach ($templateOption['features'] as $feature): ?><li><?= e($feature) ?></li><?php endforeach; ?></ul>
-            <a class="button button-dark" href="barberia.php?b=barberia-demo&amp;plantilla=<?= e($templateOption['slug']) ?>">Ver esta plantilla <span aria-hidden="true">↗</span></a>
+            <a class="button button-dark" href="detalle-plantilla.php?plantilla=<?= e($templateOption['slug']) ?>">Ver detalles y muestra <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       <?php endforeach; ?>

@@ -1,6 +1,6 @@
 VISTA PREVIA VISUAL DE ONLYFIVE
 
-Abre index.html en tu navegador. La página incluye los paquetes y las preguntas frecuentes. En Plantillas puedes comparar los tres estilos y abrir la página de ejemplo con cada variante. Contacto es una página propia con acceso a WhatsApp.
+Abre index.html en tu navegador. La página incluye los paquetes y las preguntas frecuentes. En Plantillas puedes comparar los tres estilos y abrir la ficha de cada uno con su descripción y una muestra del sitio incrustada. Usa los enlaces `?plantilla=clasica`, `?plantilla=urbana` o `?plantilla=minimal` para elegir el diseño. Contacto es una página propia con acceso a WhatsApp.
 
 La barra superior permite explorar también la página de barbería, el panel de reservas y la configuración.
 

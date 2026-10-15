@@ -5,6 +5,7 @@ require_once __DIR__ . '/../app/database.php';
 
 $slug = $_GET['b'] ?? 'barberia-demo';
 $template = $_GET['plantilla'] ?? 'clasica';
+$previewMode = ($_GET['preview'] ?? '') === '1';
 if (!is_string($template) || !in_array($template, ['clasica', 'urbana', 'minimal'], true)) {
     $template = 'clasica';
 }
@@ -57,7 +58,7 @@ endif;
 
 $dateMin = (new DateTimeImmutable('today', new DateTimeZone('America/Lima')))->format('Y-m-d');
 $dateMax = (new DateTimeImmutable('today', new DateTimeZone('America/Lima')))->modify('+60 days')->format('Y-m-d');
-$whatsAppLink = is_string($shop['whatsapp'] ?? null)
+$whatsAppLink = !$previewMode && is_string($shop['whatsapp'] ?? null)
     ? whatsapp_url($shop['whatsapp'], 'Hola, quisiera consultar sobre una cita en ' . $shop['nombre'] . '.')
     : null;
 $coverPhoto = $settings['foto_portada'] ?: 'assets/barberia.png';
@@ -137,7 +138,10 @@ if ($address !== '' && !$genericAddress) {
       </div>
     </section>
     <section class="booking wrap" id="reserva">
-      <div class="booking-intro reveal"><p class="eyebrow">Tu próximo corte empieza aquí</p><h2>Reserva<br>tu cita.</h2><p>Elige el servicio, el barbero y un horario. La solicitud quedará pendiente hasta que la barbería la confirme.</p></div>
+      <div class="booking-intro reveal"><p class="eyebrow">Tu próximo corte empieza aquí</p><h2>Reserva<br>tu cita.</h2><p><?= $previewMode ? 'Así se verá el área de reservas de esta propuesta.' : 'Elige el servicio, el barbero y un horario. La solicitud quedará pendiente hasta que la barbería la confirme.' ?></p></div>
+      <?php if ($previewMode): ?>
+        <div class="booking-preview-note"><p class="eyebrow">Solo una muestra</p><h3>Reserva de ejemplo</h3><p>Este formulario se activa cuando la página se configura para una barbería.</p></div>
+      <?php else: ?>
       <form class="booking-form reveal" action="reservar.php" method="post" data-availability-endpoint="api/horarios-disponibles.php">
         <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
         <input type="hidden" name="barberia_id" value="<?= (int) $shop['id'] ?>">
@@ -153,6 +157,7 @@ if ($address !== '' && !$genericAddress) {
         <small>La solicitud queda pendiente hasta que la barbería confirme el horario. Se muestran fechas de los próximos 60 días.</small>
       </form>
       <?php if ($whatsAppLink): ?><a class="booking-contact-link" href="<?= e($whatsAppLink) ?>" target="_blank" rel="noopener noreferrer">¿Tienes una consulta? Escríbenos por WhatsApp ↗</a><?php endif; ?>
+      <?php endif; ?>
     </section>
   </main>
   <footer class="shop-footer"><div class="wrap"><a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a><span><?= e($shop['direccion'] ?: 'Lima, Perú') ?></span><?php if ($mapsUrl): ?><a href="<?= e($mapsUrl) ?>" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a><?php endif; ?><a href="privacidad.php?b=<?= e($shop['slug']) ?>">Privacidad ↗</a><a href="plantillas.php">Ver más plantillas ↗</a></div><div class="checker" aria-hidden="true"></div></footer>
