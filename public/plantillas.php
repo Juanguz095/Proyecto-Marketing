@@ -58,7 +58,7 @@ $templates = [
   <header class="site-header" id="inicio">
     <nav class="nav wrap" aria-label="Navegación principal">
       <a class="nav-link" href="index.php">Inicio</a>
-      <a class="nav-link" href="#galeria" aria-current="page">Plantillas</a>
+      <a class="nav-link" href="plantillas.php" aria-current="page">Plantillas</a>
       <a class="nav-link" href="contacto.php">Contacto</a>
     </nav>
     <a class="wordmark" href="index.php" aria-label="OnlyFive, inicio">ONLYFIVE</a>
