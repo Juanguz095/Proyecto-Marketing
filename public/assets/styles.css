@@ -11,3 +11,158 @@
 @media(max-width:760px){:root{--gutter:18px}.wordmark{font-size:58px;margin:15px auto 18px}.hero-image{height:430px;border-radius:6px 6px 42px 6px}.hero-copy{left:24px;right:20px;bottom:38px}.hero h1{font-size:clamp(59px,14vw,86px)}.hero-index{right:4px}.burst{width:84px;left:-7px;top:20px;font-size:10px}.hero-actions{gap:13px}.button{padding:15px 16px}.ticker{margin-bottom:65px}.intro{grid-template-columns:1fr;gap:18px;margin-bottom:75px}.intro-heading,.intro-visual,.intro-copy{grid-column:1;grid-row:auto}.intro-heading h2{font-size:57px}.intro-visual{height:370px;max-width:470px;margin-left:auto;width:90%}.intro-copy{max-width:510px}.section-heading{display:block}.section-heading h2{font-size:72px;margin-bottom:10px}.section-note{max-width:440px}.feature-grid{grid-template-columns:1fr;gap:8px}.feature-card,.feature-card:nth-child(2){min-height:230px;transform:none}.feature-card:hover,.feature-card:nth-child(2):hover{transform:translateY(-5px)}.feature-card h3{font-size:48px;margin:29px 0 10px}.icon-cut,.icon-person,.icon-clock{top:34px}.process{grid-template-columns:1fr;gap:22px}.process-top{position:static}.process-top h2{font-size:66px}.process-row{grid-template-columns:35px 1fr 20px;gap:10px;padding:17px 0}.process-row p{grid-column:2;grid-row:2}.process-row b{grid-column:3;grid-row:1/3}.contact{grid-template-columns:1fr}.contact-image{min-height:290px;height:55vw}.contact-card{padding:31px 23px}.contact-card h2{font-size:68px}.footer{flex-wrap:wrap;padding:0 0 18px}.footer-brand{width:100%;font-size:57px}.footer span{flex:1}.shop-header{align-items:flex-start}.shop-logo{font-size:25px}.shop-nav{gap:13px}.shop-nav a{font-size:8px;letter-spacing:.08em}.shop-hero{height:600px}.shop-hero-photo{inset:0 0 70px 8%;border-radius:5px 5px 40px 5px}.shop-hero-content{top:auto;bottom:0;transform:none;width:86%;padding:23px;box-shadow:7px 8px 0 var(--tan)}.shop-hero h1{font-size:76px}.shop-hero-content>p:not(.eyebrow){font-size:13px}.demo-label{right:0;bottom:41px;font-size:7px}.shop-services{grid-template-columns:1fr;gap:16px}.shop-services .section-heading{position:static}.shop-services .section-heading h2{font-size:67px}.barber-showcase{grid-template-columns:1fr}.barber-photo{height:390px}.barber-copy{padding:24px}.barber-copy h2{font-size:68px}.booking{grid-template-columns:1fr;gap:18px}.booking-intro h2{font-size:75px}.shop-footer>.wrap{flex-wrap:wrap}.shop-footer>.wrap>*{flex:1 1 40%}}
 @media(max-width:420px){.nav-link{font-size:9px;letter-spacing:.08em}.wordmark{font-size:49px}.hero-image{height:390px}.hero h1{font-size:57px}.hero-lead{font-size:13px}.hero-actions{align-items:flex-start;flex-direction:column}.text-link{margin-left:2px}.intro-heading h2{font-size:49px}.intro-visual{height:315px}.section-heading h2{font-size:63px}.shop-nav{gap:9px}.shop-nav a{font-size:7px}.shop-logo{font-size:22px}.shop-hero{height:535px}.shop-hero h1{font-size:65px}.form-pair{grid-template-columns:1fr 1fr;gap:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none;clip-path:none}}
+
+/* Accesibilidad y gestión de la barbería */
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.skip-link{position:fixed;z-index:100;left:12px;top:12px;padding:12px 16px;background:var(--yellow);color:var(--ink);font-weight:700;transform:translateY(-160%)}
+.skip-link:focus{transform:translateY(0)}
+.booking-form button:disabled{cursor:not-allowed;opacity:.52;transform:none}
+.availability-status{margin:-5px 0 0;color:#514a42;font-size:12px;line-height:1.45}
+.privacy-consent{grid-template-columns:20px 1fr!important;align-items:start;gap:10px!important;font-size:12px!important;letter-spacing:0!important;text-transform:none!important;line-height:1.5;font-weight:500!important}
+.privacy-consent input{width:18px!important;height:18px!important;margin:1px 0 0;accent-color:var(--gold)}
+.privacy-consent a,.shop-nav-link{color:var(--gold);font-weight:700}
+.booking-contact-link{grid-column:2;text-align:right;color:var(--gold);font-size:12px;font-weight:700}
+.shop-nav-link{font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.privacy-page{min-height:100vh}
+.privacy-main{padding-top:clamp(48px,9vw,100px);padding-bottom:clamp(48px,9vw,100px);max-width:900px}
+.privacy-main h1{font:800 clamp(50px,9vw,104px)/.86 var(--display);text-transform:uppercase;max-width:760px;margin:0 0 18px}
+.privacy-intro{max-width:650px;color:var(--muted);font-size:clamp(17px,2.5vw,22px);margin-bottom:42px}
+.privacy-copy{background:var(--cream);border:1px solid var(--line);padding:clamp(22px,5vw,54px);box-shadow:10px 10px 0 var(--tan)}
+.privacy-copy h2{font:700 28px/.95 var(--display);text-transform:uppercase;margin:0 0 12px}
+.privacy-copy p{white-space:normal;color:#514a42;line-height:1.7;margin:0 0 28px}
+.privacy-reminder{margin:35px 0 0;color:var(--muted);font-size:13px}
+
+.admin-page{min-height:100vh;background:var(--paper)}
+.admin-header{border-bottom:1px solid var(--line);background:rgba(251,248,242,.86)}
+.admin-header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.admin-header-inner>div{display:flex;align-items:center;gap:22px;font-size:12px}
+.admin-wordmark{font-size:43px;margin:0;text-align:left;line-height:.9}
+.admin-header-inner form{display:inline}
+.admin-link-button,.admin-back-link{border:0;background:none;padding:0;color:var(--gold);font:700 11px var(--body);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;cursor:pointer}
+.admin-main{padding-top:clamp(35px,6vw,70px);padding-bottom:60px}
+.admin-title-row{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+.admin-title-row h1{font:800 clamp(56px,8vw,88px)/.84 var(--display);text-transform:uppercase;margin:0 0 10px}
+.admin-title-row p:not(.eyebrow){color:var(--muted);margin:0}
+.admin-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.admin-stats article{background:var(--ink);color:var(--paper);padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.admin-stats article:first-child{background:var(--yellow);color:var(--ink)}
+.admin-stats span{font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+.admin-stats strong{font:800 42px/.9 var(--display)}
+.admin-filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.admin-filters a{padding:9px 13px;border:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.08em;text-decoration:none}
+.admin-filters a.is-active,.admin-filters a:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.admin-reservations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.admin-reservation,.admin-settings-card,.admin-empty{background:var(--cream);border:1px solid var(--line);padding:clamp(20px,3vw,30px);box-shadow:6px 6px 0 rgba(210,163,108,.35)}
+.admin-reservation-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}
+.admin-reservation-code{font-size:10px;color:var(--muted);letter-spacing:.08em}
+.status-pill{display:inline-block;padding:5px 9px;font-size:9px;line-height:1.2;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:#e8e0d4}
+.status-pendiente{background:var(--yellow)}.status-confirmada{background:#d7ead9;color:#174b26}.status-cancelada{background:#f3d9d5;color:#742c23}.status-atendida{background:#dce2e8;color:#27394a}
+.admin-reservation h2{font:700 30px/.95 var(--display);text-transform:uppercase;margin:0 0 8px;overflow-wrap:anywhere}
+.admin-reservation-time{font-size:13px;color:var(--muted);margin:0 0 16px}
+.admin-reservation dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 18px}
+.admin-reservation dl div{min-width:0}.admin-reservation dt{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.admin-reservation dd{font-size:13px;margin:3px 0 0;overflow-wrap:anywhere}
+.admin-reservation-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.admin-reservation-actions form{margin:0}.admin-reservation-actions .button{font-size:9px;padding:12px}
+.admin-whatsapp{font-size:10px;font-weight:700;color:var(--gold);text-decoration:none;text-transform:uppercase;letter-spacing:.07em;padding:10px}
+.admin-empty{text-align:center;padding:48px 20px}.admin-empty h2{font:700 28px var(--display);text-transform:uppercase;margin-bottom:7px}.admin-empty p{color:var(--muted);margin:0}
+.admin-footnote{font-size:11px;color:var(--muted);margin-top:20px}
+.admin-alert,.admin-success{padding:13px 15px;margin:0 0 18px;font-size:13px;border-left:4px solid var(--gold);background:#f3e9da}
+.admin-success{border-color:#3a8049;background:#e7f0e3;color:#245b30}
+.admin-footer{border-top:1px solid var(--line);padding-top:16px;padding-bottom:24px;display:flex;justify-content:space-between;gap:14px}
+.admin-footer a{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-decoration:none}
+.admin-footer a:hover{color:var(--gold)}
+.admin-login-shell{min-height:100vh;display:grid;place-content:center;padding:28px 20px}
+.admin-login-wordmark{font-size:clamp(54px,9vw,86px);margin:0 auto 25px}
+.admin-login-card{width:min(100%,510px);background:var(--cream);border:1px solid var(--line);padding:clamp(24px,5vw,48px);box-shadow:11px 11px 0 var(--tan)}
+.admin-login-card h1{font:800 clamp(45px,8vw,74px)/.85 var(--display);text-transform:uppercase;margin:0 0 15px}
+.admin-login-card>p:not(.eyebrow){color:var(--muted);font-size:14px}
+.admin-login-form{display:grid;gap:9px;margin:24px 0}
+.admin-login-form label,.admin-settings-form>label,.admin-record-form>label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.admin-login-form input,.admin-settings-form input:not([type=checkbox]):not([type=file]),.admin-settings-form textarea,.admin-record-form input:not([type=checkbox]),.admin-hour-row input{width:100%;min-height:43px;border:1px solid #d6cec2;background:#fffefa;color:var(--ink);padding:10px 12px;font:14px var(--body);border-radius:0}
+.admin-login-form button{justify-self:start;margin-top:8px}
+.admin-setup-note{padding:12px;background:#f3e9da;border-left:4px solid var(--gold);font-size:12px!important}
+.admin-setup-note code{font-size:11px}
+.admin-back-link{display:inline-block;margin-top:10px}
+.admin-settings-card{margin:0 0 24px;padding:clamp(20px,4vw,38px)}
+.admin-section-heading{margin-bottom:22px}.admin-section-heading h2{font:700 clamp(34px,5vw,50px)/.9 var(--display);text-transform:uppercase;margin:0 0 9px}.admin-section-heading>p:last-child{font-size:13px;color:var(--muted);margin:0}
+.admin-settings-form{display:grid;gap:16px}.admin-settings-form>label,.admin-record-form>label{display:grid;gap:7px}
+.admin-settings-form small,.admin-hours-form>small{font-size:11px;color:var(--muted);letter-spacing:0;text-transform:none;font-weight:400}
+.admin-settings-form textarea{resize:vertical;min-height:88px}
+.admin-upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.admin-upload-grid label{display:grid;align-content:start;gap:8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.admin-upload-grid input[type=file]{width:100%;font:12px var(--body)}
+.admin-image-preview{width:min(100%,310px);height:160px;object-fit:cover;border:1px solid var(--line)}
+.admin-record-form{display:grid;grid-template-columns:1.1fr 1.5fr .8fr .8fr auto auto;align-items:end;gap:11px;padding:17px 0;border-top:1px solid var(--line)}
+.admin-record-form input:not([type=checkbox]){min-width:0}.admin-record-form .button{font-size:9px;padding:13px;white-space:nowrap}
+.admin-checkbox{display:flex!important;align-items:center;gap:8px;white-space:nowrap}
+.admin-checkbox input{width:18px;height:18px;accent-color:var(--gold)}
+.admin-add-details{padding:14px 0;border-top:1px solid var(--line)}
+.admin-add-details summary{cursor:pointer;color:var(--gold);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.admin-add-details .admin-record-form{border-top:0}
+.admin-barber-settings{padding:16px 0 23px;border-top:1px solid var(--line)}
+.admin-barber-settings>.admin-record-form{grid-template-columns:1fr 1fr auto auto}
+.admin-hours-form{background:#f3eee5;padding:18px;margin-top:12px}
+.admin-hours-form h3{font:700 23px var(--display);text-transform:uppercase;margin:0 0 12px}
+.admin-hour-row{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.admin-hour-row strong{font-size:11px}.admin-hour-row label{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px;font-size:9px;text-transform:uppercase;letter-spacing:.05em}
+.admin-hour-row input{min-height:36px;padding:6px 8px}.admin-hours-form>small{display:block;margin:12px 0}
+
+/* Galería de plantillas */
+.templates-intro{padding:clamp(45px,8vw,94px) 0 35px;max-width:1240px}
+.templates-intro h1{font:800 clamp(66px,11vw,132px)/.78 var(--display);letter-spacing:.005em;text-transform:uppercase;margin:0 0 20px}
+.templates-intro h1 em,.templates-contact h2 em{color:var(--gold);font-style:normal}
+.templates-intro>p:last-child{max-width:540px;color:var(--muted);font-size:clamp(15px,2vw,18px);margin:0}
+.templates-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding-bottom:clamp(65px,9vw,115px)}
+.template-card{min-width:0;background:var(--cream);border:1px solid var(--line);box-shadow:7px 8px 0 rgba(210,163,108,.32);display:flex;flex-direction:column;overflow:hidden}
+.template-card-preview{position:relative;isolation:isolate;aspect-ratio:1.12;min-height:245px;overflow:hidden;color:#fff;background:#493322}
+.template-card-preview>img{position:absolute;z-index:-2;inset:0;opacity:.72;transition:transform .5s ease;object-position:center 44%}
+.template-card-preview:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(16,14,12,.76),rgba(16,14,12,.18) 90%),linear-gradient(0deg,rgba(16,14,12,.44),transparent 60%)}
+.template-card:hover .template-card-preview>img{transform:scale(1.04)}
+.template-preview-top{position:absolute;inset:16px 16px auto;display:flex;justify-content:space-between;gap:8px;font-size:8px;font-weight:700;letter-spacing:.1em}
+.template-preview-copy{position:absolute;left:22px;right:22px;bottom:21px;display:grid;justify-items:start;gap:9px}
+.template-preview-copy>span{font-size:9px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--yellow)}
+.template-preview-copy strong{max-width:270px;font:800 clamp(38px,4vw,56px)/.82 var(--display);text-transform:uppercase}
+.template-preview-copy i{margin-top:4px;padding:9px 11px;border:1px solid rgba(255,255,255,.7);font-size:8px;font-style:normal;font-weight:700;letter-spacing:.1em}
+.template-preview-number{position:absolute;right:15px;top:42px;color:rgba(255,255,255,.82);font:700 10px var(--body);letter-spacing:.12em}
+.template-preview-urban{background:#181817}
+.template-preview-urban:after{background:linear-gradient(90deg,rgba(10,10,10,.87),rgba(10,10,10,.2) 95%),linear-gradient(0deg,rgba(10,10,10,.58),transparent 65%)}
+.template-preview-urban .template-preview-copy>span{color:#ffd126}
+.template-preview-urban>img{filter:grayscale(.55) contrast(1.1)}
+.template-preview-minimal{background:#324739;color:#fff}
+.template-preview-minimal:after{background:linear-gradient(90deg,rgba(25,43,30,.82),rgba(25,43,30,.12) 95%),linear-gradient(0deg,rgba(25,43,30,.45),transparent 60%)}
+.template-preview-minimal .template-preview-copy>span{color:#e5efb3}
+.template-card-body{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:22px;gap:12px}
+.template-card-heading{width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.template-card-heading>span{color:var(--gold);font-size:9px;font-weight:700;letter-spacing:.12em;white-space:nowrap}
+.template-card-heading h2{margin:0;font:700 34px/.9 var(--display);text-transform:uppercase}
+.template-card-body>p{min-height:58px;margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+.template-card-body .button{width:100%;margin-top:auto;font-size:10px}
+.templates-contact{padding:0 0 clamp(65px,9vw,110px);text-align:center}
+.templates-contact h2{font:800 clamp(54px,8vw,92px)/.8 var(--display);text-transform:uppercase;margin:0 0 24px}
+.templates-contact .eyebrow{margin-bottom:12px}
+.shop-page.template-urbana{--paper:#171819;--cream:#242628;--ink:#f4f0e8;--muted:#c2bcb2;--tan:#d4ac33;--gold:#e5b91d;--yellow:#ffd126;--line:rgba(255,255,255,.2)}
+.shop-page.template-urbana .shop-hero-photo{border-radius:0}
+.shop-page.template-urbana .shop-hero-photo img{filter:grayscale(.55) contrast(1.08)}
+.shop-page.template-urbana .shop-hero-content{box-shadow:10px 12px 0 #d5aa1c}
+.shop-page.template-minimal{--paper:#edf2ec;--cream:#fff;--ink:#1c2b21;--muted:#657367;--tan:#c7d7c9;--gold:#41684e;--yellow:#dce98e;--line:rgba(28,43,33,.2)}
+.shop-page.template-minimal .shop-hero-photo{border-radius:0 0 55px 0}
+.shop-page.template-minimal .shop-hero-content{box-shadow:9px 10px 0 #c5d7c7}
+.preview-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:clamp(12px,3vw,28px);overflow-x:auto;white-space:nowrap;padding:10px max(var(--gutter),calc((100% - var(--max))/2));background:var(--ink);color:var(--paper);scrollbar-width:none}
+.preview-nav::-webkit-scrollbar{display:none}
+.preview-nav a{flex:0 0 auto;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit}
+.preview-nav a:hover,.preview-nav a[aria-current="page"]{color:var(--yellow)}
+@media(max-width:900px){.templates-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.templates-intro{padding-top:42px}.templates-intro h1{font-size:clamp(61px,18vw,88px)}.templates-grid{grid-template-columns:1fr;gap:18px;padding-bottom:66px}.template-card-preview{aspect-ratio:1.28;min-height:250px}.template-card-body{padding:19px}.template-card-heading h2{font-size:31px}.template-card-body>p{min-height:0}.templates-contact h2{font-size:66px}}
+@media(max-width:800px){
+  .admin-title-row{align-items:flex-start;flex-direction:column}.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .admin-reservations{grid-template-columns:1fr}.admin-record-form{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .admin-record-form .button{justify-self:start}.admin-barber-settings>.admin-record-form{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .admin-header-inner{align-items:flex-start;padding-top:14px;padding-bottom:14px}.admin-header-inner>div{align-items:flex-end;flex-direction:column;gap:8px;text-align:right;font-size:10px}
+  .admin-wordmark{font-size:34px}.admin-stats{gap:7px}.admin-stats article{padding:14px}.admin-reservation dl{grid-template-columns:1fr 1fr}
+  .admin-upload-grid{grid-template-columns:1fr}.admin-record-form,.admin-barber-settings>.admin-record-form{grid-template-columns:1fr}
+  .admin-hour-row{grid-template-columns:1fr 1fr;gap:8px}.admin-hour-row strong{grid-column:1/-1}.admin-hour-row label{grid-template-columns:1fr;gap:4px}
+  .admin-footer{flex-direction:column}.booking-contact-link{grid-column:1;text-align:left}
+}

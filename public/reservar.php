@@ -32,14 +32,25 @@ if (strlen($name) > 120 || strlen($phone) > 30 || strlen(preg_replace('/\D/', ''
 if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date) || !preg_match('/^\d{2}:\d{2}$/', $time)) {
     page_message('Fecha u hora no válida', 'Selecciona una fecha y una hora válidas en el formulario.');
 }
+if (($_POST['acepta_privacidad'] ?? null) !== '1') {
+    page_message('Falta aceptar el aviso de privacidad', 'Lee el aviso de privacidad y marca la casilla antes de enviar la solicitud.');
+}
 
 $timezone = new DateTimeZone('America/Lima');
+$selectedDate = DateTimeImmutable::createFromFormat('!Y-m-d', $date, $timezone);
+$today = new DateTimeImmutable('today', $timezone);
+if (!$selectedDate || $selectedDate < $today || $selectedDate > $today->modify('+60 days')) {
+    page_message('Elige una fecha cercana', 'Puedes solicitar citas desde hoy hasta los próximos 60 días.');
+}
 $start = DateTimeImmutable::createFromFormat('!Y-m-d H:i', $date . ' ' . $time, $timezone);
 $dateErrors = DateTimeImmutable::getLastErrors();
 if (!$start || ($dateErrors && ($dateErrors['warning_count'] > 0 || $dateErrors['error_count'] > 0))
     || $start->format('Y-m-d H:i') !== $date . ' ' . $time
     || $start <= new DateTimeImmutable('now', $timezone)) {
     page_message('Elige otro horario', 'La fecha debe ser futura y tener un formato válido.');
+}
+if (!allow_session_action('booking', 5, 3600)) {
+    page_message('Espera antes de enviar otra solicitud', 'Alcanzaste el límite de solicitudes de esta sesión. Inténtalo de nuevo más tarde.');
 }
 
 try {
@@ -77,9 +88,10 @@ try {
 
     $opens = new DateTimeImmutable($date . ' ' . $schedule['abre'], $timezone);
     $closes = new DateTimeImmutable($date . ' ' . $schedule['cierra'], $timezone);
-    if ($start < $opens || $end > $closes) {
+    $minutesFromOpening = (int) (($start->getTimestamp() - $opens->getTimestamp()) / 60);
+    if ($start < $opens || $end > $closes || $minutesFromOpening % 15 !== 0) {
         $pdo->rollBack();
-        page_message('Fuera del horario de atención', 'El servicio completo debe caber dentro del horario del barbero. Elige otra hora.');
+        page_message('Horario no disponible', 'Elige uno de los horarios disponibles que muestra el formulario.');
     }
 
     $overlapQuery = $pdo->prepare(
@@ -108,6 +120,16 @@ try {
         'end' => $endSql,
     ]);
     $reservationId = (string) $pdo->lastInsertId();
+    $policyQuery = $pdo->prepare('SELECT politica_privacidad FROM ajustes_barberia WHERE barberia_id = :shop');
+    $policyQuery->execute(['shop' => $shopId]);
+    $policyText = $policyQuery->fetchColumn();
+    $consent = $pdo->prepare(
+        'INSERT INTO consentimientos_reserva (reserva_id, version_politica) VALUES (:reservation, :version)'
+    );
+    $consent->execute([
+        'reservation' => $reservationId,
+        'version' => privacy_policy_version(is_string($policyText) ? $policyText : null),
+    ]);
     $pdo->commit();
 
     unset($_SESSION['csrf_token']);

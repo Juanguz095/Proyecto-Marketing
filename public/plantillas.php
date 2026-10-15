@@ -1,0 +1,98 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/../app/bootstrap.php';
+
+$templates = [
+    [
+        'slug' => 'clasica',
+        'number' => '01',
+        'name' => 'La clásica',
+        'label' => 'Tradición renovada',
+        'description' => 'Tonos cálidos, fotografía protagonista y una presentación cercana para una barbería de barrio.',
+        'headline' => 'Un corte con carácter.',
+        'style' => 'template-preview-classic',
+    ],
+    [
+        'slug' => 'urbana',
+        'number' => '02',
+        'name' => 'Urbana',
+        'label' => 'Contraste y energía',
+        'description' => 'Una propuesta oscura con acentos amarillos para destacar un estilo moderno y directo.',
+        'headline' => 'Marca tu propio estilo.',
+        'style' => 'template-preview-urban',
+    ],
+    [
+        'slug' => 'minimal',
+        'number' => '03',
+        'name' => 'Minimal',
+        'label' => 'Simple y natural',
+        'description' => 'Espacios limpios, verdes suaves y una lectura tranquila para una marca contemporánea.',
+        'headline' => 'Lo esencial, bien hecho.',
+        'style' => 'template-preview-minimal',
+    ],
+];
+?>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora las plantillas de OnlyFive y mira cómo podría verse la página de tu barbería.">
+  <meta name="theme-color" content="#f3eee5">
+  <title>Plantillas para barberías · OnlyFive</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body class="templates-page">
+  <a class="skip-link" href="#galeria">Saltar a las plantillas</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="inicio">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="nav-link" href="index.php">Inicio</a>
+      <a class="nav-link" href="#galeria" aria-current="page">Plantillas</a>
+      <a class="nav-link" href="index.php#solucion">Qué incluye</a>
+      <a class="nav-link" href="index.php#contacto">Contacto</a>
+    </nav>
+    <a class="wordmark" href="index.php" aria-label="OnlyFive, inicio">ONLYFIVE</a>
+  </header>
+
+  <main id="galeria">
+    <section class="templates-intro wrap">
+      <p class="eyebrow">Diseños para tu barbería</p>
+      <h1>Encuentra tu<br><em>estilo.</em></h1>
+      <p>Explora las propuestas y abre una vista de ejemplo. Luego adaptamos colores, fotos y contenido a tu negocio.</p>
+    </section>
+
+    <section class="templates-grid wrap" aria-label="Galería de plantillas">
+      <?php foreach ($templates as $templateOption): ?>
+        <article class="template-card reveal">
+          <div class="template-card-preview <?= e($templateOption['style']) ?>" aria-label="Vista previa de <?= e($templateOption['name']) ?>">
+            <img src="assets/barberia.png" alt="">
+            <div class="template-preview-top"><span>BARBERÍA DEMO</span><span>MENÚ&nbsp;&nbsp; RESERVAS</span></div>
+            <div class="template-preview-copy">
+              <span><?= e($templateOption['label']) ?></span>
+              <strong><?= e($templateOption['headline']) ?></strong>
+              <i>RESERVAR&nbsp; ↗</i>
+            </div>
+            <span class="template-preview-number"><?= e($templateOption['number']) ?></span>
+          </div>
+          <div class="template-card-body">
+            <div class="template-card-heading"><span><?= e($templateOption['number']) ?> / 03</span><h2><?= e($templateOption['name']) ?></h2></div>
+            <p><?= e($templateOption['description']) ?></p>
+            <a class="button button-dark" href="barberia.php?b=barberia-demo&amp;plantilla=<?= e($templateOption['slug']) ?>">Ver esta plantilla <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      <?php endforeach; ?>
+    </section>
+
+    <section class="templates-contact wrap">
+      <p class="eyebrow">¿Quieres una página así?</p>
+      <h2>La hacemos<br><em>a tu medida.</em></h2>
+      <a class="button button-outline" href="index.php#contacto">Hablemos de tu barbería <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><a class="footer-brand" href="index.php">ONLYFIVE</a><span>Soluciones web para barberías · Lima, Perú</span><a href="index.php">Volver al inicio ↗</a></footer>
+  <div class="checker" aria-hidden="true"></div>
+</body>
+</html>

@@ -2,8 +2,12 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../app/bootstrap.php';
 
-$demoUrl = 'barberia.php?b=barberia-demo';
+$templatesUrl = 'plantillas.php';
 $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi barbería.');
+$contactNumber = preg_replace('/\D+/', '', (string) getenv('ONLYFIVE_WHATSAPP')) ?? '';
+$contactBaseUrl = strlen($contactNumber) >= 7 && strlen($contactNumber) <= 15
+    ? 'https://wa.me/' . $contactNumber
+    : 'https://wa.me/';
 ?>
 <!doctype html>
 <html lang="es">
@@ -17,16 +21,18 @@ $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi b
   <script src="assets/app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
     <nav class="nav wrap" aria-label="Navegación principal">
       <a class="nav-link" href="#inicio">Inicio</a>
+      <a class="nav-link" href="<?= e($templatesUrl) ?>">Plantillas</a>
       <a class="nav-link" href="#solucion">Qué incluye</a>
       <a class="nav-link" href="#contacto">Contacto</a>
     </nav>
     <a class="wordmark" href="#inicio" aria-label="OnlyFive, inicio">ONLYFIVE</a>
   </header>
-  <main>
+  <main id="contenido">
     <section class="hero wrap">
       <div class="hero-image image-frame"><img src="assets/barberia.png" alt="Barbero realizando un corte en una barbería de barrio"></div>
       <div class="burst">Web para<br>tu barbería</div>
@@ -35,8 +41,8 @@ $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi b
         <h1>Tu barbería,<br>más visible<br><em>y organizada.</em></h1>
         <p class="hero-lead">Una página para mostrar tus servicios, presentar a tus barberos y facilitar las reservas de tus clientes.</p>
         <div class="hero-actions">
-          <a class="button button-dark" href="https://wa.me/?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener">Cotiza por WhatsApp <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="<?= e($demoUrl) ?>">Ver ejemplo de barbería <span aria-hidden="true">↓</span></a>
+          <a class="button button-dark" href="<?= e($contactBaseUrl) ?>?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener noreferrer">Cotiza por WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="<?= e($templatesUrl) ?>">Explorar plantillas <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       <div class="hero-index" aria-hidden="true">01 <span>—</span> LIMA, PERÚ</div>
@@ -50,7 +56,7 @@ $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi b
     <section class="intro wrap" id="solucion">
       <div class="intro-heading reveal"><span class="eyebrow">Una web hecha para tu negocio</span><h2>Lo que tus clientes necesitan, <em>en un solo lugar.</em></h2></div>
       <div class="intro-visual reveal"><img src="assets/barbero-perfil.png" alt="Barbero en su local, listo para atender"><div class="visual-note">Tu equipo<br>también cuenta.</div></div>
-      <div class="intro-copy reveal"><p>Presenta tu barbería como es: con tus precios, tus horarios y las personas que hacen cada corte.</p><a class="button button-outline" href="<?= e($demoUrl) ?>">Explorar una plantilla <span aria-hidden="true">↗</span></a></div>
+      <div class="intro-copy reveal"><p>Presenta tu barbería como es: con tus precios, tus horarios y las personas que hacen cada corte.</p><a class="button button-outline" href="<?= e($templatesUrl) ?>">Ver todas las plantillas <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section class="features wrap" aria-labelledby="features-title">
@@ -73,10 +79,10 @@ $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi b
 
     <section class="contact wrap" id="contacto">
       <div class="contact-image reveal"><img src="assets/barberia.png" alt="Interior cálido de una barbería"></div>
-      <div class="contact-card reveal"><p class="eyebrow">OnlyFive · Lima</p><h2>Cuéntanos<br>cómo es<br><em>tu barbería.</em></h2><p>Hablemos de los servicios, el equipo y la forma de organizar las citas.</p><a class="button button-light" href="https://wa.me/?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a></div>
+      <div class="contact-card reveal"><p class="eyebrow">OnlyFive · Lima</p><h2>Cuéntanos<br>cómo es<br><em>tu barbería.</em></h2><p>Hablemos de los servicios, el equipo y la forma de organizar las citas.</p><a class="button button-light" href="<?= e($contactBaseUrl) ?>?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
-  <footer class="footer wrap"><a class="footer-brand" href="#inicio">ONLYFIVE</a><span>Soluciones web para barberías · Lima, Perú</span><a href="<?= e($demoUrl) ?>">Ver plantilla de ejemplo ↗</a></footer>
+  <footer class="footer wrap"><a class="footer-brand" href="#inicio">ONLYFIVE</a><span>Soluciones web para barberías · Lima, Perú</span><a href="<?= e($templatesUrl) ?>">Explorar plantillas ↗</a></footer>
   <div class="checker" aria-hidden="true"></div>
 </body>
 </html>

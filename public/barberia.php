@@ -4,6 +4,10 @@ require_once __DIR__ . '/../app/bootstrap.php';
 require_once __DIR__ . '/../app/database.php';
 
 $slug = $_GET['b'] ?? 'barberia-demo';
+$template = $_GET['plantilla'] ?? 'clasica';
+if (!is_string($template) || !in_array($template, ['clasica', 'urbana', 'minimal'], true)) {
+    $template = 'clasica';
+}
 if (!is_string($slug) || !preg_match('/^[a-z0-9-]{1,120}$/', $slug)) {
     http_response_code(404);
     exit('Barbería no encontrada.');
@@ -18,6 +22,9 @@ try {
         http_response_code(404);
         exit('Barbería no encontrada.');
     }
+    $settingsQuery = $pdo->prepare('SELECT foto_portada, foto_barbero FROM ajustes_barberia WHERE barberia_id = :id LIMIT 1');
+    $settingsQuery->execute(['id' => $shop['id']]);
+    $settings = $settingsQuery->fetch() ?: ['foto_portada' => null, 'foto_barbero' => null];
     $serviceQuery = $pdo->prepare('SELECT id, nombre, descripcion, duracion_min, precio FROM servicios WHERE barberia_id = :id AND activo = 1 ORDER BY nombre');
     $serviceQuery->execute(['id' => $shop['id']]);
     $services = $serviceQuery->fetchAll();
@@ -48,7 +55,11 @@ if (!empty($dbError)):
 exit;
 endif;
 
-$dateMin = (new DateTimeImmutable('today'))->format('Y-m-d');
+$dateMin = (new DateTimeImmutable('today', new DateTimeZone('America/Lima')))->format('Y-m-d');
+$dateMax = (new DateTimeImmutable('today', new DateTimeZone('America/Lima')))->modify('+60 days')->format('Y-m-d');
+$whatsAppLink = is_string($shop['whatsapp'] ?? null)
+    ? whatsapp_url($shop['whatsapp'], 'Hola, quisiera consultar sobre una cita en ' . $shop['nombre'] . '.')
+    : null;
 ?>
 <!doctype html>
 <html lang="es">
@@ -59,20 +70,21 @@ $dateMin = (new DateTimeImmutable('today'))->format('Y-m-d');
   <title><?= e($shop['nombre']) ?> · Barbería</title>
   <link rel="stylesheet" href="assets/styles.css"><script src="assets/app.js" defer></script>
 </head>
-<body class="shop-page">
+<body class="shop-page template-<?= e($template) ?>">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="shop-header wrap" id="inicio">
     <a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a>
     <nav class="shop-nav" aria-label="Navegación de la barbería"><a href="#servicios">Servicios</a><a href="#equipo">El equipo</a><a href="#reserva">Reservar</a></nav>
   </header>
-  <main>
+  <main id="contenido">
     <section class="shop-hero wrap">
-      <div class="shop-hero-photo image-frame"><img src="assets/barberia.png" alt="Barbero trabajando en un corte"></div>
+      <div class="shop-hero-photo image-frame"><img src="<?= e($settings['foto_portada'] ?: 'assets/barberia.png') ?>" alt="Interior de <?= e($shop['nombre']) ?>"></div>
       <div class="shop-hero-content reveal"><span class="eyebrow">Corte · Estilo · Comunidad</span><h1>Más que<br>un corte.</h1><p><?= e($shop['descripcion'] ?: 'Un buen corte empieza con una buena conversación.') ?></p><a class="button button-dark" href="#reserva">Reserva tu cita <span aria-hidden="true">↓</span></a></div>
-      <span class="demo-label">PLANTILLA DE EJEMPLO · REEMPLAZAR DATOS</span>
+      <?php if ($shop['slug'] === 'barberia-demo'): ?><span class="demo-label">PLANTILLA DE EJEMPLO · REEMPLAZAR DATOS</span><?php endif; ?>
     </section>
     <section class="shop-services wrap" id="servicios">
-      <div class="section-heading reveal"><p class="eyebrow">Hecho a tu medida</p><h2>Servicios<br>y precios.</h2><p class="section-note">Precios de muestra: actualízalos con los de la barbería.</p></div>
+      <div class="section-heading reveal"><p class="eyebrow">Hecho a tu medida</p><h2>Servicios<br>y precios.</h2><p class="section-note">Consulta aquí las tarifas y la duración de cada servicio.</p></div>
       <div class="service-list">
         <?php foreach ($services as $service): ?>
           <article class="service-row reveal"><div><span><?= (int) $service['duracion_min'] ?> MIN</span><h3><?= e($service['nombre']) ?></h3><p><?= e($service['descripcion']) ?></p></div><strong><?= e(money($service['precio'])) ?></strong></article>
@@ -81,7 +93,7 @@ $dateMin = (new DateTimeImmutable('today'))->format('Y-m-d');
       </div>
     </section>
     <section class="barber-showcase wrap" id="equipo">
-      <div class="barber-photo reveal"><img src="assets/barbero-perfil.png" alt="Barbero de la plantilla de ejemplo"></div>
+      <div class="barber-photo reveal"><img src="<?= e($settings['foto_barbero'] ?: 'assets/barbero-perfil.png') ?>" alt="Equipo de <?= e($shop['nombre']) ?>"></div>
       <div class="barber-copy reveal"><p class="eyebrow">Las manos detrás del corte</p><h2>Conoce<br>a tu barbero.</h2>
         <?php foreach ($barbers as $barber): ?>
           <div class="barber-name"><strong><?= e($barber['nombre']) ?></strong><span><?= e($barber['especialidad'] ?: 'Barbero') ?></span>
@@ -95,19 +107,23 @@ $dateMin = (new DateTimeImmutable('today'))->format('Y-m-d');
     </section>
     <section class="booking wrap" id="reserva">
       <div class="booking-intro reveal"><p class="eyebrow">Tu próximo corte empieza aquí</p><h2>Reserva<br>tu cita.</h2><p>Elige el servicio, el barbero y un horario. La solicitud quedará pendiente hasta que la barbería la confirme.</p></div>
-      <form class="booking-form reveal" action="reservar.php" method="post">
+      <form class="booking-form reveal" action="reservar.php" method="post" data-availability-endpoint="api/horarios-disponibles.php">
         <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
         <input type="hidden" name="barberia_id" value="<?= (int) $shop['id'] ?>">
-        <label>Servicio<select name="servicio_id" required><option value="">Selecciona un servicio</option><?php foreach ($services as $service): ?><option value="<?= (int) $service['id'] ?>"><?= e($service['nombre']) ?> · <?= e(money($service['precio'])) ?></option><?php endforeach; ?></select></label>
-        <label>Barbero<select name="barbero_id" required><option value="">Selecciona un barbero</option><?php foreach ($barbers as $barber): ?><option value="<?= (int) $barber['id'] ?>"><?= e($barber['nombre']) ?></option><?php endforeach; ?></select></label>
-        <div class="form-pair"><label>Fecha<input type="date" name="fecha" min="<?= e($dateMin) ?>" required></label><label>Hora<input type="time" name="hora" required></label></div>
+        <label for="servicio-id">Servicio<select id="servicio-id" name="servicio_id" required><option value="">Selecciona un servicio</option><?php foreach ($services as $service): ?><option value="<?= (int) $service['id'] ?>" data-duration="<?= (int) $service['duracion_min'] ?>"><?= e($service['nombre']) ?> · <?= e(money($service['precio'])) ?></option><?php endforeach; ?></select></label>
+        <label for="barbero-id">Barbero<select id="barbero-id" name="barbero_id" required><option value="">Selecciona un barbero</option><?php foreach ($barbers as $barber): ?><option value="<?= (int) $barber['id'] ?>"><?= e($barber['nombre']) ?></option><?php endforeach; ?></select></label>
+        <div class="form-pair"><label for="fecha-cita">Fecha<input id="fecha-cita" type="date" name="fecha" min="<?= e($dateMin) ?>" max="<?= e($dateMax) ?>" required></label><label for="hora-cita">Hora<select id="hora-cita" name="hora" required disabled><option value="">Primero elige fecha y servicio</option></select></label></div>
+        <p class="availability-status" data-availability-status role="status" aria-live="polite">Elige un servicio, un barbero y una fecha para consultar los horarios disponibles.</p>
         <label>Tu nombre<input name="cliente_nombre" type="text" maxlength="120" autocomplete="name" placeholder="Nombre y apellido" required></label>
         <label>Celular<input name="cliente_telefono" type="tel" maxlength="30" autocomplete="tel" placeholder="Ej. 999 123 456" required></label>
-        <button class="button button-dark" type="submit">Enviar solicitud <span aria-hidden="true">↗</span></button>
-        <small>La reserva se registra como pendiente. La barbería debe confirmar el horario.</small>
+        <label class="privacy-consent"><input name="acepta_privacidad" type="checkbox" value="1" required><span>Autorizo el uso de mis datos para gestionar esta cita y he leído el <a href="privacidad.php?b=<?= e($shop['slug']) ?>" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
+        <noscript><small>Activa JavaScript en tu navegador para consultar los horarios disponibles.</small></noscript>
+        <button class="button button-dark" type="submit" disabled>Enviar solicitud <span aria-hidden="true">↗</span></button>
+        <small>La solicitud queda pendiente hasta que la barbería confirme el horario. Se muestran fechas de los próximos 60 días.</small>
       </form>
+      <?php if ($whatsAppLink): ?><a class="booking-contact-link" href="<?= e($whatsAppLink) ?>" target="_blank" rel="noopener noreferrer">¿Tienes una consulta? Escríbenos por WhatsApp ↗</a><?php endif; ?>
     </section>
   </main>
-  <footer class="shop-footer"><div class="wrap"><a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a><span><?= e($shop['direccion'] ?: 'Lima, Perú') ?></span><a href="index.php">Una plantilla de OnlyFive ↗</a></div><div class="checker" aria-hidden="true"></div></footer>
+  <footer class="shop-footer"><div class="wrap"><a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a><span><?= e($shop['direccion'] ?: 'Lima, Perú') ?></span><a href="privacidad.php?b=<?= e($shop['slug']) ?>">Privacidad ↗</a><a href="plantillas.php">Ver más plantillas ↗</a></div><div class="checker" aria-hidden="true"></div></footer>
 </body>
 </html>

@@ -1,4 +1,11 @@
 (() => {
+  const requestedTemplate = new URLSearchParams(window.location.search).get('plantilla');
+  const availableTemplates = ['clasica', 'urbana', 'minimal'];
+  if (document.body.classList.contains('shop-page') && availableTemplates.includes(requestedTemplate)) {
+    document.body.classList.remove('template-clasica', 'template-urbana', 'template-minimal');
+    document.body.classList.add(`template-${requestedTemplate}`);
+  }
+
   const progress = document.querySelector('.scroll-progress');
   const updateProgress = () => {
     if (!progress) return;
