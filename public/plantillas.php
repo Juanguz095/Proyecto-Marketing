@@ -59,9 +59,7 @@ $templates = [
     <nav class="nav wrap" aria-label="Navegación principal">
       <a class="nav-link" href="index.php">Inicio</a>
       <a class="nav-link" href="#galeria" aria-current="page">Plantillas</a>
-      <a class="nav-link" href="index.php#paquetes">Paquetes</a>
-      <a class="nav-link" href="index.php#preguntas">Preguntas</a>
-      <a class="nav-link" href="index.php#contacto">Contacto</a>
+      <a class="nav-link" href="contacto.php">Contacto</a>
     </nav>
     <a class="wordmark" href="index.php" aria-label="OnlyFive, inicio">ONLYFIVE</a>
   </header>
@@ -107,7 +105,7 @@ $templates = [
     <section class="templates-contact wrap">
       <p class="eyebrow">¿Quieres una página así?</p>
       <h2>La hacemos<br><em>a tu medida.</em></h2>
-      <a class="button button-outline" href="index.php#contacto">Hablemos de tu barbería <span aria-hidden="true">↗</span></a>
+      <a class="button button-outline" href="contacto.php">Hablemos de tu barbería <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 

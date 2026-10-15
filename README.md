@@ -86,6 +86,7 @@ Abre estas direcciones:
 
 - `http://127.0.0.1:8000/` — página de OnlyFive.
 - `http://127.0.0.1:8000/plantillas.php` — galería de diseños y vistas de ejemplo.
+- `http://127.0.0.1:8000/contacto.php` — página de contacto y solicitud de cotización.
 - `http://127.0.0.1:8000/barberia.php?b=barberia-demo` — página de reservas.
 - `http://127.0.0.1:8000/admin/` — inicio de sesión del panel.
 - `http://127.0.0.1:8000/privacidad.php?b=barberia-demo` — aviso de privacidad.

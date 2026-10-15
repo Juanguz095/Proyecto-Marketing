@@ -61,11 +61,9 @@ $faqItems = [
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
     <nav class="nav wrap" aria-label="Navegación principal">
-      <a class="nav-link" href="#solucion">Qué incluye</a>
+      <a class="nav-link" href="index.php" aria-current="page">Inicio</a>
       <a class="nav-link" href="<?= e($templatesUrl) ?>">Plantillas</a>
-      <a class="nav-link" href="#paquetes">Paquetes</a>
-      <a class="nav-link" href="#preguntas">Preguntas</a>
-      <a class="nav-link" href="#contacto">Contacto</a>
+      <a class="nav-link" href="contacto.php">Contacto</a>
     </nav>
     <a class="wordmark" href="#inicio" aria-label="OnlyFive, inicio">ONLYFIVE</a>
   </header>

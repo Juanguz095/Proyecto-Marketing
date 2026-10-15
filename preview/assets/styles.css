@@ -198,6 +198,26 @@ picture{display:block;width:100%;height:100%}
 .faq-item[open] summary span{transform:rotate(45deg)}
 .faq-item>p{max-width:650px;margin:0;padding:0 36px 20px 0;color:var(--muted);font-size:14px;line-height:1.65}
 
+/* Página de contacto */
+.contact-page-intro{padding:clamp(48px,9vw,100px) 0 38px}
+.contact-page-intro h1{max-width:950px;font:800 clamp(62px,11vw,128px)/.78 var(--display);letter-spacing:.005em;text-transform:uppercase;margin:0 0 22px}
+.contact-page-intro h1 em{font-style:normal;color:var(--gold)}
+.contact-page-intro>p:last-child{max-width:580px;color:var(--muted);font-size:clamp(15px,2vw,18px);margin:0}
+.contact-page-grid{display:grid;grid-template-columns:1fr .8fr;gap:18px;padding-bottom:clamp(75px,10vw,130px)}
+.contact-page-card{padding:clamp(25px,5vw,52px);border:1px solid var(--line);background:var(--cream);box-shadow:7px 8px 0 rgba(210,163,108,.28)}
+.contact-page-card-dark{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:300px;background:var(--ink);color:var(--paper)}
+.contact-page-card-dark .eyebrow{color:var(--yellow)}
+.contact-page-card h2{font:800 clamp(39px,6vw,65px)/.84 var(--display);text-transform:uppercase;margin:0 0 14px}
+.contact-page-card>p:not(.eyebrow){max-width:490px;color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 22px}
+.contact-page-card-dark>p:not(.eyebrow){color:#d2c9bd}
+.contact-page-card ul{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.contact-page-card li{position:relative;padding-left:20px;color:#514a42;font-size:13px;line-height:1.5}
+.contact-page-card li:before{content:"✳";position:absolute;left:0;top:0;color:var(--gold)}
+.contact-page-back{padding:0 0 clamp(68px,9vw,110px);text-align:center}
+.contact-page-back>p{color:var(--muted);font-size:14px;margin:0 0 16px}
+@media(max-width:760px){.contact-page-grid{grid-template-columns:1fr;gap:12px}.contact-page-card-dark{min-height:260px}}
+@media(max-width:560px){.contact-page-intro{padding-top:42px}.contact-page-intro h1{font-size:clamp(59px,16vw,88px)}.contact-page-card{padding:24px}.contact-page-card h2{font-size:45px}}
+
 /* Vistas diferenciadas para cada plantilla */
 .template-feature-list{display:flex;flex-wrap:wrap;gap:7px;padding:0;margin:0;list-style:none}
 .template-feature-list li{padding:6px 8px;border:1px solid var(--line);font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
