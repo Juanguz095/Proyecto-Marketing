@@ -143,6 +143,5 @@ try {
     if (isset($pdo) && $pdo->inTransaction()) {
         $pdo->rollBack();
     }
-    http_response_code(503);
-    page_message('No se pudo guardar la solicitud', 'Comprueba la conexión con MySQL e inténtalo de nuevo.');
+    page_message('No se pudo guardar la solicitud', 'Comprueba la conexión con MySQL e inténtalo de nuevo.', false, 503);
 }

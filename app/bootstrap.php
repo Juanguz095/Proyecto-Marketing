@@ -5,7 +5,7 @@ date_default_timezone_set('America/Lima');
 
 header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: strict-origin-when-cross-origin');
-header('X-Frame-Options: DENY');
+header('X-Frame-Options: SAMEORIGIN');
 header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -30,7 +30,7 @@ function csrf_token(): string
     return $_SESSION['csrf_token'];
 }
 
-function verify_csrf(?string $token): bool
+function verify_csrf(mixed $token): bool
 {
     return is_string($token)
         && isset($_SESSION['csrf_token'])
@@ -83,9 +83,9 @@ function money(float|string $amount): string
     return 'S/ ' . number_format((float) $amount, 2);
 }
 
-function page_message(string $title, string $message, bool $success = false): void
+function page_message(string $title, string $message, bool $success = false, ?int $statusCode = null): void
 {
-    http_response_code($success ? 200 : 422);
+    http_response_code($statusCode ?? ($success ? 200 : 422));
     $safeTitle = e($title);
     $safeMessage = e($message);
     $statusLabel = $success ? 'Solicitud recibida' : 'Revisa tus datos';
