@@ -2,11 +2,27 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../app/bootstrap.php';
 
+$templates = require __DIR__ . '/../app/template_catalog.php';
+$selectedTemplate = null;
+$requestedTemplate = $_GET['plantilla'] ?? null;
+if (is_string($requestedTemplate)) {
+    foreach ($templates as $templateOption) {
+        if ($templateOption['slug'] === $requestedTemplate) {
+            $selectedTemplate = $templateOption;
+            break;
+        }
+    }
+}
 $contactNumber = preg_replace('/\D+/', '', (string) getenv('ONLYFIVE_WHATSAPP')) ?? '';
 $contactBaseUrl = strlen($contactNumber) >= 7 && strlen($contactNumber) <= 15
     ? 'https://wa.me/' . $contactNumber
     : 'https://wa.me/';
-$whatsAppMessage = rawurlencode('Hola OnlyFive, quiero cotizar una página web para mi barbería. El nombre de mi barbería es: ____. Necesito: ____.');
+$message = 'Hola OnlyFive, quiero cotizar una página web para mi barbería.';
+if ($selectedTemplate !== null) {
+    $message .= ' Me interesa la plantilla ' . $selectedTemplate['name'] . '.';
+}
+$message .= ' El nombre de mi barbería es: ____. Necesito: ____.';
+$whatsAppMessage = rawurlencode($message);
 ?>
 <!doctype html>
 <html lang="es">
@@ -29,12 +45,11 @@ $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero cotizar una página web p
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
-    <nav class="nav wrap" aria-label="Navegación principal">
-      <a class="nav-link" href="index.php">Inicio</a>
-      <a class="nav-link" href="plantillas.php">Plantillas</a>
-      <a class="nav-link" href="contacto.php" aria-current="page">Contacto</a>
+    <nav class="nav wrap brand-nav" aria-label="Navegación principal">
+      <a class="brand-lockup" href="index.php" aria-label="OnlyFive, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Web para barberías</small></span></a>
+      <div class="nav-menu"><a class="nav-link" href="index.php">Inicio</a><a class="nav-link" href="plantillas.php">Plantillas</a><a class="nav-link" href="contacto.php" aria-current="page">Contacto</a></div>
+      <a class="button button-dark nav-cta" href="#contenido">Solicitar información <span aria-hidden="true">↘</span></a>
     </nav>
-    <a class="wordmark" href="index.php" aria-label="OnlyFive, inicio">ONLYFIVE</a>
   </header>
   <main id="contenido">
     <section class="contact-page-intro wrap">
@@ -44,7 +59,7 @@ $whatsAppMessage = rawurlencode('Hola OnlyFive, quiero cotizar una página web p
     </section>
     <section class="contact-page-grid wrap" aria-label="Cómo solicitar una cotización">
       <div class="contact-page-card contact-page-card-dark">
-        <p class="eyebrow">Empecemos la conversación</p>
+        <p class="eyebrow"><?= $selectedTemplate !== null ? 'Plantilla elegida · ' . e($selectedTemplate['name']) : 'Empecemos la conversación' ?></p>
         <h2>Escríbenos<br>por WhatsApp.</h2>
         <p>El mensaje incluirá unas líneas para que agregues el nombre de tu barbería y lo que necesitas.</p>
         <a class="button button-light" href="<?= e($contactBaseUrl) ?>?text=<?= e($whatsAppMessage) ?>" target="_blank" rel="noopener noreferrer">Solicitar cotización <span aria-hidden="true">↗</span></a>
