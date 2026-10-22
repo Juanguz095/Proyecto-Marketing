@@ -65,12 +65,20 @@ $coverPhoto = $settings['foto_portada'] ?: 'assets/barberia.png';
 $teamPhoto = $settings['foto_barbero'] ?: 'assets/barbero-perfil.png';
 $coverIsDemoPhoto = $coverPhoto === 'assets/barberia.png';
 $teamIsDemoPhoto = $teamPhoto === 'assets/barbero-perfil.png';
+$templateNames = ['clasica' => 'Estilo clásico', 'urbana' => 'Estilo urbano', 'minimal' => 'Estilo minimal'];
+$demoCopy = [
+    'clasica' => ['headline' => "Un estilo clásico\nque nunca pasa de moda.", 'description' => 'Cortes clásicos, cuidado de barba y una atención profesional para quienes valoran la tradición.'],
+    'urbana' => ['headline' => "Marca tu estilo\ncon cada corte.", 'description' => 'Cortes actuales, detalles precisos y un espacio pensado para expresar tu personalidad.'],
+    'minimal' => ['headline' => "Cuidado sencillo,\nbien hecho.", 'description' => 'Un lugar tranquilo para renovar tu estilo, cuidar tu barba y disfrutar de una atención cercana.'],
+];
+$heroHeadline = $demoCopy[$template]['headline'];
 $address = trim((string) ($shop['direccion'] ?? ''));
 $genericAddress = strcasecmp($address, 'Lima, Perú') === 0 || strcasecmp($address, 'Lima, Peru') === 0;
 $mapsUrl = $address !== '' && !$genericAddress
     ? 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode($address)
     : null;
 $shopDescription = trim(strip_tags((string) ($shop['descripcion'] ?: 'Servicios, barberos y reservas de ' . $shop['nombre'] . '.')));
+$heroDescription = $shop['slug'] === 'barberia-demo' ? $demoCopy[$template]['description'] : $shopDescription;
 $shopMetaDescription = preg_replace('/^(.{0,155}).*/us', '$1', $shopDescription) ?? $shopDescription;
 $businessStructuredData = [
     '@context' => 'https://schema.org',
@@ -105,6 +113,7 @@ if ($address !== '' && !$genericAddress) {
 <body class="shop-page template-<?= e($template) ?>">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="scroll-progress" aria-hidden="true"></div>
+  <?php if ($previewMode): ?><aside class="preview-ribbon"><div><strong>Vista demo: <?= e($templateNames[$template]) ?></strong><span>Contenido de muestra · se adapta a los datos de tu barbería</span></div><a href="detalle-plantilla.php?plantilla=<?= e($template) ?>" target="_top">Volver a plantillas <span aria-hidden="true">↗</span></a></aside><?php endif; ?>
   <header class="shop-header wrap" id="inicio">
     <a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a>
     <nav class="shop-nav" aria-label="Navegación de la barbería"><a href="#servicios">Servicios</a><a href="#equipo">El equipo</a><a href="#reserva">Reservar</a></nav>
@@ -112,29 +121,34 @@ if ($address !== '' && !$genericAddress) {
   <main id="contenido">
     <section class="shop-hero wrap">
       <div class="shop-hero-photo image-frame"><?php if ($coverIsDemoPhoto): ?><picture><source type="image/webp" srcset="assets/barberia-720.webp 720w, assets/barberia-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), 70vw"><img src="assets/barberia.png" alt="Interior de <?= e($shop['nombre']) ?>" fetchpriority="high" decoding="async"></picture><?php else: ?><img src="<?= e($coverPhoto) ?>" alt="Interior de <?= e($shop['nombre']) ?>" fetchpriority="high" decoding="async"><?php endif; ?></div>
-      <div class="shop-hero-content reveal"><span class="eyebrow">Corte · Estilo · Comunidad</span><h1>Más que<br>un corte.</h1><p><?= e($shop['descripcion'] ?: 'Un buen corte empieza con una buena conversación.') ?></p><a class="button button-dark" href="#reserva">Reserva tu cita <span aria-hidden="true">↓</span></a></div>
+      <div class="shop-hero-content reveal"><span class="eyebrow">Corte · Estilo · Comunidad</span><h1><?= nl2br(e($heroHeadline)) ?></h1><p><?= e($heroDescription ?: 'Un buen corte empieza con una buena conversación.') ?></p><a class="button button-dark" href="#reserva">Reserva tu cita <span aria-hidden="true">↓</span></a></div>
       <?php if ($shop['slug'] === 'barberia-demo'): ?><span class="demo-label">PLANTILLA DE EJEMPLO · REEMPLAZAR DATOS</span><?php endif; ?>
     </section>
+    <section class="shop-highlights wrap" aria-label="Lo que puedes encontrar en esta página">
+      <article><span aria-hidden="true">01</span><div><h2>Servicios</h2><p>Tarifas y duración en un solo lugar.</p></div></article>
+      <article><span aria-hidden="true">02</span><div><h2>Barberos</h2><p>Conoce al equipo y consulta sus horarios.</p></div></article>
+      <article><span aria-hidden="true">03</span><div><h2>Reservas</h2><p>Envía una solicitud para tu próxima cita.</p></div></article>
+    </section>
     <section class="shop-services wrap" id="servicios">
-      <div class="section-heading reveal"><p class="eyebrow">Hecho a tu medida</p><h2>Servicios<br>y precios.</h2><p class="section-note">Consulta aquí las tarifas y la duración de cada servicio.</p></div>
+      <div class="section-heading reveal"><p class="eyebrow">Nuestros servicios</p><h2>Elige tu<br>próximo corte.</h2><p class="section-note">Consulta las tarifas y el tiempo estimado de cada servicio.</p></div>
       <div class="service-list">
-        <?php foreach ($services as $service): ?>
-          <article class="service-row reveal"><div><span><?= (int) $service['duracion_min'] ?> MIN</span><h3><?= e($service['nombre']) ?></h3><p><?= e($service['descripcion']) ?></p></div><strong><?= e(money($service['precio'])) ?></strong></article>
+        <?php foreach ($services as $serviceIndex => $service): ?>
+          <article class="service-row reveal"><span class="service-card-number"><?= str_pad((string) ($serviceIndex + 1), 2, '0', STR_PAD_LEFT) ?></span><div><span><?= (int) $service['duracion_min'] ?> MIN</span><h3><?= e($service['nombre']) ?></h3><p><?= e($service['descripcion']) ?></p></div><strong><?= e(money($service['precio'])) ?></strong><a href="#reserva"<?= $previewMode ? '' : ' data-select-service="' . (int) $service['id'] . '"' ?> aria-label="Reservar <?= e($service['nombre']) ?>">Reservar este servicio <span aria-hidden="true">→</span></a></article>
         <?php endforeach; ?>
         <?php if (!$services): ?><p>Aún no hay servicios publicados.</p><?php endif; ?>
       </div>
     </section>
     <section class="barber-showcase wrap" id="equipo">
       <div class="barber-photo reveal"><?php if ($teamIsDemoPhoto): ?><picture><source type="image/webp" srcset="assets/barbero-perfil-720.webp 480w, assets/barbero-perfil-1440.webp 960w" sizes="(max-width: 760px) 100vw, 50vw"><img src="assets/barbero-perfil.png" alt="Equipo de <?= e($shop['nombre']) ?>" loading="lazy" decoding="async"></picture><?php else: ?><img src="<?= e($teamPhoto) ?>" alt="Equipo de <?= e($shop['nombre']) ?>" loading="lazy" decoding="async"><?php endif; ?></div>
-      <div class="barber-copy reveal"><p class="eyebrow">Las manos detrás del corte</p><h2>Conoce<br>a tu barbero.</h2>
-        <?php foreach ($barbers as $barber): ?>
+      <div class="barber-copy reveal"><p class="eyebrow">Las manos detrás del corte</p><h2>Conoce<br>al equipo.</h2>
+        <div class="barber-name-list"><?php foreach ($barbers as $index => $barber): ?>
           <div class="barber-name"><strong><?= e($barber['nombre']) ?></strong><span><?= e($barber['especialidad'] ?: 'Barbero') ?></span>
+            <small>Barbero <?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?> · <?= e($shop['nombre']) ?></small>
             <?php foreach ($hoursByBarber[(int) $barber['id']] ?? [] as $hour): ?>
               <small><?= e($dayNames[(int) $hour['dia_semana']] ?? 'Día') ?> · <?= e(substr($hour['abre'], 0, 5)) ?>–<?= e(substr($hour['cierra'], 0, 5)) ?></small>
             <?php endforeach; ?>
           </div>
-        <?php endforeach; ?>
-        <?php if (!$barbers): ?><p>El equipo se mostrará aquí.</p><?php endif; ?>
+        <?php endforeach; ?><?php if (!$barbers): ?><p>El equipo se mostrará aquí.</p><?php endif; ?></div>
       </div>
     </section>
     <section class="booking wrap" id="reserva">
@@ -158,6 +172,11 @@ if ($address !== '' && !$genericAddress) {
       </form>
       <?php if ($whatsAppLink): ?><a class="booking-contact-link" href="<?= e($whatsAppLink) ?>" target="_blank" rel="noopener noreferrer">¿Tienes una consulta? Escríbenos por WhatsApp ↗</a><?php endif; ?>
       <?php endif; ?>
+    </section>
+    <section class="shop-contact wrap" aria-label="Información de contacto">
+      <article class="shop-contact-card"><span class="shop-contact-icon" aria-hidden="true">⌖</span><div><p class="eyebrow">Encuéntranos</p><h2><?= $address !== '' ? e($address) : 'Consulta la ubicación al reservar.' ?></h2><?php if ($mapsUrl): ?><a href="<?= e($mapsUrl) ?>" target="_blank" rel="noopener noreferrer">Ver ubicación <span aria-hidden="true">↗</span></a><?php elseif ($address === ''): ?><a href="#reserva">Consultar disponibilidad <span aria-hidden="true">→</span></a><?php endif; ?></div></article>
+      <article class="shop-contact-card"><span class="shop-contact-icon" aria-hidden="true">◷</span><div><p class="eyebrow">Horarios</p><h2>Consulta la disponibilidad de cada barbero.</h2><a href="#equipo">Ver horarios del equipo <span aria-hidden="true">→</span></a></div></article>
+      <article class="shop-contact-card shop-contact-cta"><span class="shop-contact-icon" aria-hidden="true">✳</span><div><p class="eyebrow">¿Tienes una consulta?</p><h2><?= $whatsAppLink ? 'Escríbenos y te ayudamos.' : 'Reserva tu siguiente cita.' ?></h2><?php if ($whatsAppLink): ?><a href="<?= e($whatsAppLink) ?>" target="_blank" rel="noopener noreferrer">Abrir WhatsApp <span aria-hidden="true">↗</span></a><?php else: ?><a href="#reserva">Ir a reservas <span aria-hidden="true">→</span></a><?php endif; ?></div></article>
     </section>
   </main>
   <footer class="shop-footer"><div class="wrap"><a class="shop-logo" href="#inicio"><?= e($shop['nombre']) ?><small>BARBERÍA</small></a><span><?= e($shop['direccion'] ?: 'Lima, Perú') ?></span><?php if ($mapsUrl): ?><a href="<?= e($mapsUrl) ?>" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a><?php endif; ?><a href="privacidad.php?b=<?= e($shop['slug']) ?>">Privacidad ↗</a><a href="plantillas.php">Ver más plantillas ↗</a></div><div class="checker" aria-hidden="true"></div></footer>
