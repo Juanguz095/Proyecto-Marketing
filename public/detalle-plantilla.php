@@ -41,12 +41,11 @@ $previewUrl = 'barberia.php?b=barberia-demo&plantilla=' . rawurlencode($template
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
-    <nav class="nav wrap" aria-label="Navegación principal">
-      <a class="nav-link" href="index.php">Inicio</a>
-      <a class="nav-link" href="plantillas.php" aria-current="page">Plantillas</a>
-      <a class="nav-link" href="contacto.php">Contacto</a>
+    <nav class="nav wrap brand-nav" aria-label="Navegación principal">
+      <a class="brand-lockup" href="index.php" aria-label="OnlyFive, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Web para barberías</small></span></a>
+      <div class="nav-menu"><a class="nav-link" href="index.php">Inicio</a><a class="nav-link" href="plantillas.php" aria-current="page">Plantillas</a><a class="nav-link" href="contacto.php">Contacto</a></div>
+      <a class="button button-dark nav-cta" href="contacto.php">Solicitar información <span aria-hidden="true">↗</span></a>
     </nav>
-    <a class="wordmark" href="index.php" aria-label="OnlyFive, inicio">ONLYFIVE</a>
   </header>
   <main id="contenido" data-template-detail>
     <section class="template-detail-intro wrap">
