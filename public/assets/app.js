@@ -4,6 +4,19 @@
   if (document.body.classList.contains('shop-page') && availableTemplates.includes(requestedTemplate)) {
     document.body.classList.remove('template-clasica', 'template-urbana', 'template-minimal');
     document.body.classList.add(`template-${requestedTemplate}`);
+    const demoCopy = {
+      clasica: { label: 'Estilo clásico', headline: 'Un estilo clásico\nque nunca pasa de moda.', description: 'Cortes clásicos, cuidado de barba y una atención profesional para quienes valoran la tradición.' },
+      urbana: { label: 'Estilo urbano', headline: 'Marca tu estilo\ncon cada corte.', description: 'Cortes actuales, detalles precisos y un espacio pensado para expresar tu personalidad.' },
+      minimal: { label: 'Estilo minimal', headline: 'Cuidado sencillo,\nbien hecho.', description: 'Un lugar tranquilo para renovar tu estilo, cuidar tu barba y disfrutar de una atención cercana.' },
+    }[requestedTemplate];
+    const previewLabel = document.querySelector('[data-template-label]');
+    if (previewLabel) {
+      previewLabel.textContent = `Vista demo: ${demoCopy.label}`;
+      const headline = document.querySelector('[data-shop-headline]');
+      const description = document.querySelector('[data-shop-description]');
+      if (headline) headline.textContent = demoCopy.headline;
+      if (description) description.textContent = demoCopy.description;
+    }
   }
 
   const progress = document.querySelector('.scroll-progress');
@@ -31,6 +44,45 @@
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 
+  const filterGroup = document.querySelector('[data-template-filters]');
+  if (filterGroup) {
+    const filterButtons = [...filterGroup.querySelectorAll('[data-template-filter]')];
+    const templateCards = [...document.querySelectorAll('[data-template-card]')];
+    const status = document.querySelector('[data-template-filter-status]');
+    const showTemplates = (filter) => {
+      let visibleCount = 0;
+      templateCards.forEach((card) => {
+        const visible = filter === 'all' || card.dataset.templateCard === filter;
+        card.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+      filterButtons.forEach((button) => {
+        const active = button.dataset.templateFilter === filter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      if (status) {
+        const countLabel = visibleCount === 1 ? 'plantilla' : 'plantillas';
+        status.textContent = `Se ${visibleCount === 1 ? 'muestra' : 'muestran'} ${visibleCount} ${countLabel}.`;
+      }
+    };
+    filterButtons.forEach((button) => button.addEventListener('click', () => {
+      showTemplates(button.dataset.templateFilter || 'all');
+    }));
+  }
+
+  const staticContactLink = document.querySelector('[data-contact-whatsapp]');
+  if (staticContactLink) {
+    const selectedTemplate = new URLSearchParams(window.location.search).get('plantilla');
+    const templateNames = { clasica: 'La clásica', urbana: 'Urbana', minimal: 'Minimal' };
+    if (Object.prototype.hasOwnProperty.call(templateNames, selectedTemplate)) {
+      const label = document.querySelector('[data-contact-template-label]');
+      if (label) label.textContent = `Plantilla elegida · ${templateNames[selectedTemplate]}`;
+      const message = `Hola OnlyFive, quiero cotizar una página para mi barbería. Me interesa la plantilla ${templateNames[selectedTemplate]}. El nombre de mi barbería es: ____. Necesito: ____.`;
+      staticContactLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    }
+  }
+
   const form = document.querySelector('.booking-form[data-availability-endpoint]');
   if (!form) return;
 
@@ -42,6 +94,16 @@
   const status = form.querySelector('[data-availability-status]');
   const submitButton = form.querySelector('button[type="submit"]');
   let activeRequest;
+
+  document.querySelectorAll('[data-select-service]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const service = link.dataset.selectService;
+      if (serviceInput && service) {
+        serviceInput.value = service;
+        serviceInput.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
 
   const setTimeOptions = (slots) => {
     timeInput.replaceChildren(new Option('Selecciona una hora', ''));
