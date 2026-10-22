@@ -1,103 +1,49 @@
-
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="OnlyFive crea páginas web para barberías: servicios, perfiles, horarios y reservas en un solo lugar.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_PE">
-  <meta property="og:site_name" content="OnlyFive">
-  <meta property="og:title" content="OnlyFive — Webs para barberías">
-  <meta property="og:description" content="Una página para mostrar tus servicios, presentar a tus barberos y facilitar las reservas de tus clientes.">
-  <meta name="twitter:card" content="summary">
-  <meta name="theme-color" content="#f3eee5">
+  <meta property="og:type" content="website"><meta property="og:locale" content="es_PE"><meta property="og:site_name" content="OnlyFive"><meta property="og:title" content="OnlyFive — Webs para barberías"><meta property="og:description" content="Una página para mostrar tus servicios, presentar a tus barberos y facilitar las reservas de tus clientes.">
+  <meta name="twitter:card" content="summary"><meta name="theme-color" content="#f3eee5">
   <title>OnlyFive — Webs para barberías</title>
-  <link rel="stylesheet" href="assets/styles.css">
-  <script src="assets/app.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css"><script src="assets/app.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <div class="scroll-progress" aria-hidden="true"></div>
-  <header class="site-header" id="inicio">
-    <nav class="nav wrap" aria-label="Navegación principal">
-      <a class="nav-link" href="index.html" aria-current="page">Inicio</a>
-      <a class="nav-link" href="plantillas.html">Plantillas</a>
-      <a class="nav-link" href="contacto.html">Contacto</a>
-    </nav>
-    <a class="wordmark" href="#inicio" aria-label="OnlyFive, inicio">ONLYFIVE</a>
-  </header>
+<body class="home-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a><div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="inicio"><nav class="nav wrap brand-nav" aria-label="Navegación principal">
+    <a class="brand-lockup" href="#inicio" aria-label="OnlyFive, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Web para barberías</small></span></a>
+    <div class="nav-menu"><a class="nav-link" href="#inicio" aria-current="page">Inicio</a><a class="nav-link" href="plantillas.html">Plantillas</a><a class="nav-link" href="#beneficios">Beneficios</a><a class="nav-link" href="#paquetes">Opciones</a></div>
+    <a class="button button-dark nav-cta" href="contacto.html">Solicitar información <span aria-hidden="true">↗</span></a>
+  </nav></header>
   <main id="contenido">
-    <section class="hero wrap">
-      <div class="hero-image image-frame"><picture><source type="image/webp" srcset="assets/barberia-720.webp 720w, assets/barberia-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), 90vw"><img src="assets/barberia.png" alt="Barbero realizando un corte en una barbería de barrio" fetchpriority="high" decoding="async"></picture></div>
-      <div class="burst">Web para<br>tu barbería</div>
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Soluciones web para barberías de barrio</p>
-        <h1>Tu barbería,<br>más visible<br><em>y organizada.</em></h1>
-        <p class="hero-lead">Una página para mostrar tus servicios, presentar a tus barberos y facilitar las reservas de tus clientes.</p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="https://wa.me/?text=Hola%20OnlyFive%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20barber%C3%ADa." target="_blank" rel="noopener noreferrer">Cotiza por WhatsApp <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="plantillas.html">Explorar plantillas <span aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-      <div class="hero-index" aria-hidden="true">01 <span>—</span> LIMA, PERÚ</div>
+    <section class="home-hero wrap" aria-labelledby="home-title">
+      <div class="home-hero-copy reveal"><p class="eyebrow">Soluciones web para barberías</p><h1 id="home-title">Tu barbería<br>merece estar<br><em>en línea.</em></h1><p class="home-hero-lead">Plantillas prácticas, modernas y adaptables para mostrar tus servicios, presentar a tu equipo y organizar las citas.</p><div class="hero-actions"><a class="button button-dark" href="plantillas.html">Ver plantillas <span aria-hidden="true">→</span></a><a class="button button-outline" href="https://wa.me/?text=Hola%20OnlyFive%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20barber%C3%ADa." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a></div><p class="home-hero-note"><span aria-hidden="true">✳</span> Hecha para tu negocio y para tus clientes desde el celular.</p></div>
+      <div class="home-hero-visual reveal"><picture><source type="image/webp" srcset="assets/barberia-720.webp 720w, assets/barberia-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), 48vw"><img src="assets/barberia.png" alt="Barbero realizando un corte en una barbería" fetchpriority="high" decoding="async"></picture><span class="home-hero-stamp">Tu estilo.<br>Tu espacio.</span><span class="home-hero-caption">Una presencia digital que se siente como tu barbería.</span></div>
     </section>
-
-    <div class="ticker" aria-label="Servicios, barberos y reservas"><div class="ticker-track" aria-hidden="true">
-      <span>ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b> ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b></span>
-      <span>ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b> ESTILO <b>✳</b> SERVICIOS <b>✳</b> BARBEROS <b>✳</b> RESERVAS <b>✳</b></span>
-    </div></div>
-
-    <section class="intro wrap" id="solucion">
-      <div class="intro-heading reveal"><span class="eyebrow">Una web hecha para tu negocio</span><h2>Lo que tus clientes necesitan, <em>en un solo lugar.</em></h2></div>
-      <div class="intro-visual reveal"><picture><source type="image/webp" srcset="assets/barbero-perfil-720.webp 480w, assets/barbero-perfil-1440.webp 960w" sizes="(max-width: 760px) 90vw, 40vw"><img src="assets/barbero-perfil.png" alt="Barbero en su local, listo para atender" loading="lazy" decoding="async"></picture><div class="visual-note">Tu equipo<br>también cuenta.</div></div>
-      <div class="intro-copy reveal"><p>Presenta tu barbería como es: con tus precios, tus horarios y las personas que hacen cada corte.</p><a class="button button-outline" href="plantillas.html">Ver todas las plantillas <span aria-hidden="true">↗</span></a></div>
-    </section>
-
-    <section class="features wrap" aria-labelledby="features-title">
-      <div class="section-heading reveal"><p class="eyebrow">Una página clara y práctica</p><h2 id="features-title">Haz visible<br>tu barbería.</h2><p class="section-note">Diseñada para verse bien en el celular y facilitar que tus clientes encuentren lo que buscan.</p></div>
-      <div class="feature-grid">
-        <article class="feature-card reveal"><span class="feature-num">01</span><div class="icon-cut" aria-hidden="true">✂</div><h3>Servicios<br>y precios</h3><p>Tu catálogo ordenado para que el cliente elija con claridad.</p></article>
-        <article class="feature-card feature-card-dark reveal"><span class="feature-num">02</span><div class="icon-person" aria-hidden="true">◉</div><h3>Perfiles<br>de barberos</h3><p>Presenta al equipo, sus especialidades y su trabajo.</p></article>
-        <article class="feature-card reveal"><span class="feature-num">03</span><div class="icon-clock" aria-hidden="true">◷</div><h3>Horarios<br>y reservas</h3><p>Ayuda a organizar la agenda y recibir solicitudes de cita.</p></article>
-      </div>
-    </section>
-
-    <section class="process wrap" aria-labelledby="process-title">
-      <div class="process-top reveal"><p class="eyebrow">De la idea a tu página</p><h2 id="process-title">Un proceso<br>sin vueltas.</h2><p>Nos cuentas lo que necesitas. Personalizamos la web contigo y la dejamos lista para compartir.</p></div>
-      <div class="process-list">
-        <div class="process-row reveal"><span>01</span><h3>Conversamos</h3><p>Conocemos tu barbería y cómo trabajas.</p><b aria-hidden="true">↗</b></div>
-        <div class="process-row reveal"><span>02</span><h3>Personalizamos</h3><p>Adaptamos nombre, colores, servicios y equipo.</p><b aria-hidden="true">↗</b></div>
-        <div class="process-row reveal"><span>03</span><h3>La ponemos en marcha</h3><p>Revisamos juntos el contenido antes de compartirla.</p><b aria-hidden="true">↗</b></div>
-      </div>
-    </section>
-
-    <section class="packages wrap" id="paquetes" aria-labelledby="packages-title">
-      <div class="packages-heading reveal"><p class="eyebrow">Opciones para empezar</p><h2 id="packages-title">Elige lo que<br>necesita tu negocio.</h2><p>La cotización depende del contenido y las funciones que quieras incluir. Te confirmamos el alcance antes de comenzar.</p></div>
-      <div class="package-grid">
-        <article class="package-card reveal"><p class="eyebrow">Para mostrar tu negocio</p><h3>Presencia</h3><p>Una página clara con la historia de tu barbería, servicios, horarios y formas de contacto.</p><ul><li>Perfil de la barbería</li><li>Servicios y precios</li><li>Contacto y horarios</li></ul><span class="package-price">Cotización personalizada</span><a class="button button-dark" href="https://wa.me/?text=Hola%20OnlyFive%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20presentar%20mi%20barber%C3%ADa." target="_blank" rel="noopener noreferrer">Consultar este paquete <span aria-hidden="true">↗</span></a></article>
-        <article class="package-card reveal"><p class="eyebrow">Para ordenar las citas</p><h3>Reservas</h3><p>Incluye la información del negocio y un flujo de reservas conectado a la agenda del equipo.</p><ul><li>Todo lo de Presencia</li><li>Disponibilidad por servicio</li><li>Panel para gestionar solicitudes</li></ul><span class="package-price">Cotización personalizada</span><a class="button button-dark" href="https://wa.me/?text=Hola%20OnlyFive%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20con%20reservas%20para%20mi%20barber%C3%ADa." target="_blank" rel="noopener noreferrer">Consultar este paquete <span aria-hidden="true">↗</span></a></article>
-        <article class="package-card reveal"><p class="eyebrow">Para una marca propia</p><h3>A medida</h3><p>Partimos de una plantilla y ajustamos el estilo, las fotos y el contenido a la identidad de tu negocio.</p><ul><li>Elección de estilo</li><li>Colores y contenido propios</li><li>Alcance acordado antes de empezar</li></ul><span class="package-price">Cotización personalizada</span><a class="button button-dark" href="https://wa.me/?text=Hola%20OnlyFive%2C%20quiero%20conversar%20sobre%20una%20p%C3%A1gina%20personalizada%20para%20mi%20barber%C3%ADa." target="_blank" rel="noopener noreferrer">Consultar este paquete <span aria-hidden="true">↗</span></a></article>
-      </div>
-    </section>
-
-    <section class="faq wrap" id="preguntas" aria-labelledby="faq-title">
-      <div class="faq-heading reveal"><p class="eyebrow">Antes de comenzar</p><h2 id="faq-title">Preguntas<br>frecuentes.</h2></div>
-      <div class="faq-list">
-        <details class="faq-item reveal" open><summary>¿Qué información puede mostrar la página?<span aria-hidden="true">＋</span></summary><p>Puede incluir servicios, precios, duración de cada servicio, horarios, presentación del equipo, dirección y contacto. Tú defines qué datos se publican.</p></details>
-        <details class="faq-item reveal"><summary>¿La página funciona en celulares?<span aria-hidden="true">＋</span></summary><p>Sí. El diseño se adapta a pantallas pequeñas y los botones de contacto y reserva se pueden usar desde el celular.</p></details>
-        <details class="faq-item reveal"><summary>¿Cómo funcionan las reservas?<span aria-hidden="true">＋</span></summary><p>El cliente envía una solicitud con el servicio, el barbero y un horario disponible. La cita queda pendiente hasta que la barbería la confirme.</p></details>
-        <details class="faq-item reveal"><summary>¿Qué necesito para comenzar?<span aria-hidden="true">＋</span></summary><p>El nombre de la barbería, sus servicios y precios, horarios, formas de contacto y, si tienes, fotos o logotipo. Podemos acordar qué material falta antes de empezar.</p></details>
-        <details class="faq-item reveal"><summary>¿Cuánto cuesta y qué incluye el dominio?<span aria-hidden="true">＋</span></summary><p>El costo se cotiza según el contenido y las funciones que necesites. El dominio y el alojamiento se especifican en la cotización antes de iniciar.</p></details>
-      </div>
-    </section>
-
-    <section class="contact wrap" id="contacto">
-      <div class="contact-image reveal"><picture><source type="image/webp" srcset="assets/barberia-720.webp 720w, assets/barberia-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw"><img src="assets/barberia.png" alt="Interior cálido de una barbería" loading="lazy" decoding="async"></picture></div>
-      <div class="contact-card reveal"><p class="eyebrow">OnlyFive · Lima</p><h2>Cuéntanos<br>cómo es<br><em>tu barbería.</em></h2><p>Hablemos de los servicios, el equipo y la forma de organizar las citas.</p><a class="button button-light" href="https://wa.me/?text=Hola%20OnlyFive%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20barber%C3%ADa." target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a></div>
-    </section>
+    <section class="home-offerings section-band"><div class="wrap"><div class="compact-heading"><p class="eyebrow">Una página, todo claro</p><h2>¿Qué ofrecemos?</h2><p>Lo que tus clientes necesitan para conocerte y reservar.</p></div><div class="offering-grid">
+      <article class="offering-card"><span class="offering-icon" aria-hidden="true">▤</span><div><h3>Plantillas listas</h3><p>Diseños creados para mostrar los servicios y el carácter de tu barbería.</p></div></article>
+      <article class="offering-card"><span class="offering-icon" aria-hidden="true">▣</span><div><h3>Diseño adaptable</h3><p>Se ve bien en celulares, tabletas y computadoras, sin perder claridad.</p></div></article>
+      <article class="offering-card"><span class="offering-icon" aria-hidden="true">⚙</span><div><h3>Reservas y soporte</h3><p>Opciones para recibir citas y acompañamiento para personalizar tu página.</p></div></article>
+    </div></div></section>
+    <section class="home-benefits wrap" id="beneficios"><div class="compact-heading"><p class="eyebrow">Una mejor experiencia para todos</p><h2>Una web que trabaja<br><em>por tu barbería.</em></h2><p>La información correcta, a un toque de distancia.</p></div><div class="benefit-grid">
+      <article class="benefit-card"><span aria-hidden="true">◎</span><h3>Más visibilidad</h3><p>Comparte un enlace para que nuevos clientes encuentren tu negocio.</p></article><article class="benefit-card"><span aria-hidden="true">✦</span><h3>Mejor imagen</h3><p>Presenta tu estilo, tus servicios y el cuidado que pones en cada corte.</p></article><article class="benefit-card"><span aria-hidden="true">▦</span><h3>Reservas claras</h3><p>Permite consultar horarios y enviar una solicitud de cita en línea.</p></article><article class="benefit-card"><span aria-hidden="true">↗</span><h3>Todo ordenado</h3><p>Reúne horarios, precios, equipo y contacto en un solo lugar.</p></article>
+    </div></section>
+    <section class="home-templates section-band" id="plantillas"><div class="wrap"><div class="section-row-heading"><div class="compact-heading"><p class="eyebrow">Diseños para elegir</p><h2>Plantillas destacadas</h2><p>Elige el estilo que mejor representa tu negocio.</p></div><a class="button button-outline" href="plantillas.html">Ver las 3 plantillas <span aria-hidden="true">→</span></a></div><div class="home-template-grid">
+      <article class="home-template-card"><a class="home-template-visual template-preview-classic" href="detalle-plantilla.html?plantilla=clasica" aria-label="Ver muestra de La clásica"><img src="assets/barberia-720.webp" alt="" loading="lazy"><span class="home-template-kicker">TRADICIÓN RENOVADA</span><strong>Un corte<br>con carácter.</strong><span class="home-template-action">VER MUESTRA ↗</span></a><div class="home-template-info"><span class="eyebrow">01 · Tradición renovada</span><h3>La clásica</h3><p>Una composición editorial con tonos tierra y tipografía con carácter.</p><a class="text-arrow" href="detalle-plantilla.html?plantilla=clasica">Ver detalles y demo <span>→</span></a></div></article>
+      <article class="home-template-card"><a class="home-template-visual template-preview-urban" href="detalle-plantilla.html?plantilla=urbana" aria-label="Ver muestra de Urbana"><img src="assets/barberia-720.webp" alt="" loading="lazy"><span class="home-template-kicker">CONTRASTE Y ENERGÍA</span><strong>Marca tu<br>propio estilo.</strong><span class="home-template-action">VER MUESTRA ↗</span></a><div class="home-template-info"><span class="eyebrow">02 · Contraste y energía</span><h3>Urbana</h3><p>Fondo oscuro, titulares grandes y acentos de color con mucha fuerza.</p><a class="text-arrow" href="detalle-plantilla.html?plantilla=urbana">Ver detalles y demo <span>→</span></a></div></article>
+      <article class="home-template-card"><a class="home-template-visual template-preview-minimal" href="detalle-plantilla.html?plantilla=minimal" aria-label="Ver muestra de Minimal"><img src="assets/barbero-perfil-720.webp" alt="" loading="lazy"><span class="home-template-kicker">SIMPLE Y NATURAL</span><strong>Lo esencial,<br>bien hecho.</strong><span class="home-template-action">VER MUESTRA ↗</span></a><div class="home-template-info"><span class="eyebrow">03 · Simple y natural</span><h3>Minimal</h3><p>Una estructura abierta, serena y con detalles verdes.</p><a class="text-arrow" href="detalle-plantilla.html?plantilla=minimal">Ver detalles y demo <span>→</span></a></div></article>
+    </div></div></section>
+    <section class="home-process wrap"><div class="compact-heading"><p class="eyebrow">Empezar es sencillo</p><h2>¿Cómo lo hacemos?</h2><p>Te acompañamos desde la elección del estilo hasta la publicación.</p></div><ol class="step-grid"><li><span>01</span><h3>Elige tu plantilla</h3><p>Revisa las opciones y encuentra el estilo que te gusta.</p></li><li><span>02</span><h3>Cuéntanos de ti</h3><p>Comparte el nombre, los servicios, horarios y fotos de tu barbería.</p></li><li><span>03</span><h3>La personalizamos</h3><p>Ajustamos el diseño y revisamos el contenido contigo.</p></li><li><span>04</span><h3>La publicamos</h3><p>Dejamos la página lista para que puedas compartirla.</p></li></ol></section>
+    <section class="packages wrap" id="paquetes"><div class="packages-heading reveal"><p class="eyebrow">Opciones para empezar</p><h2>Elige lo que<br>necesita tu negocio.</h2><p>La cotización depende del contenido y las funciones que quieras incluir. Te confirmamos el alcance antes de comenzar.</p></div><div class="package-grid">
+      <article class="package-card reveal"><p class="eyebrow">Para mostrar tu negocio</p><h3>Presencia</h3><p>Una página clara con la historia de tu barbería, servicios, horarios y formas de contacto.</p><ul><li>Perfil de la barbería</li><li>Servicios y precios</li><li>Contacto y horarios</li></ul><span class="package-price">Cotización personalizada</span><a class="button button-dark" href="contacto.html">Consultar este paquete <span>↗</span></a></article>
+      <article class="package-card reveal"><p class="eyebrow">Para ordenar las citas</p><h3>Reservas</h3><p>Incluye la información del negocio y un flujo de reservas conectado a la agenda del equipo.</p><ul><li>Todo lo de Presencia</li><li>Disponibilidad por servicio</li><li>Panel para gestionar solicitudes</li></ul><span class="package-price">Cotización personalizada</span><a class="button button-dark" href="contacto.html">Consultar este paquete <span>↗</span></a></article>
+      <article class="package-card reveal"><p class="eyebrow">Para una marca propia</p><h3>A medida</h3><p>Partimos de una plantilla y ajustamos el estilo, las fotos y el contenido a la identidad de tu negocio.</p><ul><li>Elección de estilo</li><li>Colores y contenido propios</li><li>Alcance acordado antes de empezar</li></ul><span class="package-price">Cotización personalizada</span><a class="button button-dark" href="contacto.html">Consultar este paquete <span>↗</span></a></article>
+    </div></section>
+    <section class="faq wrap" id="preguntas"><div class="faq-heading reveal"><p class="eyebrow">Antes de comenzar</p><h2>Preguntas<br>frecuentes.</h2></div><div class="faq-list"><details class="faq-item reveal" open><summary>¿Qué información puede mostrar la página?<span>＋</span></summary><p>Puede incluir servicios, precios, duración de cada servicio, horarios, presentación del equipo, dirección y contacto. Tú defines qué datos se publican.</p></details><details class="faq-item reveal"><summary>¿La página funciona en celulares?<span>＋</span></summary><p>Sí. El diseño se adapta a pantallas pequeñas y los botones de contacto y reserva se pueden usar desde el celular.</p></details><details class="faq-item reveal"><summary>¿Cómo funcionan las reservas?<span>＋</span></summary><p>El cliente envía una solicitud con el servicio, el barbero y un horario disponible. La cita queda pendiente hasta que la barbería la confirme.</p></details><details class="faq-item reveal"><summary>¿Qué necesito para comenzar?<span>＋</span></summary><p>El nombre de la barbería, sus servicios y precios, horarios, formas de contacto y, si tienes, fotos o logotipo. Podemos acordar qué material falta antes de empezar.</p></details><details class="faq-item reveal"><summary>¿Cuánto cuesta y qué incluye el dominio?<span>＋</span></summary><p>El costo se cotiza según el contenido y las funciones que necesites. El dominio y el alojamiento se especifican en la cotización antes de iniciar.</p></details></div></section>
+    <section class="home-contact wrap" id="contacto"><div class="home-contact-image"><picture><source type="image/webp" srcset="assets/barberia-720.webp 720w, assets/barberia-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 48vw"><img src="assets/barberia.png" alt="Interior cálido de una barbería" loading="lazy"></picture></div><div class="home-contact-copy"><p class="eyebrow">¿Listo para empezar?</p><h2>Tu próxima<br>gran idea<br><em>empieza aquí.</em></h2><p>Cuéntanos qué necesita tu barbería. Te ayudamos a elegir el estilo y las funciones.</p><a class="button button-light" href="contacto.html">Solicitar información <span>→</span></a></div></section>
   </main>
-  <footer class="footer wrap"><a class="footer-brand" href="#inicio">ONLYFIVE</a><span>Soluciones web para barberías · Lima, Perú</span><a href="plantillas.html">Explorar plantillas ↗</a></footer>
+  <footer class="site-footer"><div class="wrap site-footer-main"><a class="brand-lockup footer-lockup" href="#inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Soluciones web para barberías</small></span></a><div><h2>Enlaces rápidos</h2><a href="#inicio">Inicio</a><a href="plantillas.html">Plantillas</a><a href="contacto.html">Contacto</a></div><div><h2>Hablemos</h2><a href="contacto.html">Solicita información</a><span>Lima, Perú</span></div><div><h2>Tu proyecto</h2><p>Una página clara, cercana y pensada para crecer con tu negocio.</p></div></div><div class="wrap site-footer-bottom"><span>© 2026 OnlyFive</span><a href="privacidad.html">Privacidad</a><span>Soluciones web para barberías</span></div></footer>
   <div class="checker" aria-hidden="true"></div>
 </body>
 </html>
