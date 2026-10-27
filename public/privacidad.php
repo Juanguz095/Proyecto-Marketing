@@ -47,6 +47,6 @@ $contact = is_string($shop['whatsapp'] ?? null) ? whatsapp_url($shop['whatsapp']
     </section>
     <?php if (!is_string($customPolicy) || trim($customPolicy) === ''): ?><p class="privacy-reminder">El negocio aún no ha personalizado este aviso. Antes de recibir reservas reales, revisa y completa esta información desde el panel de administración.</p><?php endif; ?>
   </main>
-  <footer class="admin-footer wrap"><a href="barberia.php?b=<?= e($shop['slug']) ?>">Volver a la página de la barbería</a><a href="index.php">OnlyFive</a></footer>
+  <footer class="admin-footer wrap"><a href="barberia.php?b=<?= e($shop['slug']) ?>">Volver a la página de la barbería</a><a href="index.php">Solisweb</a></footer>
 </body>
 </html>

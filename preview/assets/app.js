@@ -78,7 +78,7 @@
     if (Object.prototype.hasOwnProperty.call(templateNames, selectedTemplate)) {
       const label = document.querySelector('[data-contact-template-label]');
       if (label) label.textContent = `Plantilla elegida · ${templateNames[selectedTemplate]}`;
-      const message = `Hola OnlyFive, quiero cotizar una página para mi barbería. Me interesa la plantilla ${templateNames[selectedTemplate]}. El nombre de mi barbería es: ____. Necesito: ____.`;
+      const message = `Hola Solisweb, quiero cotizar una página para mi barbería. Me interesa la plantilla ${templateNames[selectedTemplate]}. El nombre de mi barbería es: ____. Necesito: ____.`;
       staticContactLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
     }
   }

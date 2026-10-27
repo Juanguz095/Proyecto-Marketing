@@ -4,8 +4,8 @@ require_once __DIR__ . '/../app/bootstrap.php';
 
 $templates = require __DIR__ . '/../app/template_catalog.php';
 $templatesUrl = 'plantillas.php';
-$whatsAppMessage = rawurlencode('Hola OnlyFive, quiero una página web para mi barbería.');
-$contactNumber = preg_replace('/\D+/', '', (string) getenv('ONLYFIVE_WHATSAPP')) ?? '';
+$whatsAppMessage = rawurlencode('Hola Solisweb, quiero una página web para mi barbería.');
+$contactNumber = preg_replace('/\D+/', '', (string) (getenv('SOLISWEB_WHATSAPP') ?: getenv('ONLYFIVE_WHATSAPP'))) ?? '';
 $contactBaseUrl = strlen($contactNumber) >= 7 && strlen($contactNumber) <= 15
     ? 'https://wa.me/' . $contactNumber
     : 'https://wa.me/';
@@ -15,21 +15,21 @@ $packages = [
         'label' => 'Para mostrar tu negocio',
         'description' => 'Una página clara con la historia de tu barbería, servicios, horarios y formas de contacto.',
         'items' => ['Perfil de la barbería', 'Servicios y precios', 'Contacto y horarios'],
-        'message' => 'Hola OnlyFive, quiero cotizar una página para presentar mi barbería.',
+        'message' => 'Hola Solisweb, quiero cotizar una página para presentar mi barbería.',
     ],
     [
         'name' => 'Reservas',
         'label' => 'Para ordenar las citas',
         'description' => 'Incluye la información del negocio y un flujo de reservas conectado a la agenda del equipo.',
         'items' => ['Todo lo de Presencia', 'Disponibilidad por servicio', 'Panel para gestionar solicitudes'],
-        'message' => 'Hola OnlyFive, quiero cotizar una página con reservas para mi barbería.',
+        'message' => 'Hola Solisweb, quiero cotizar una página con reservas para mi barbería.',
     ],
     [
         'name' => 'A medida',
         'label' => 'Para una marca propia',
         'description' => 'Partimos de una plantilla y ajustamos el estilo, las fotos y el contenido a la identidad de tu negocio.',
         'items' => ['Elección de estilo', 'Colores y contenido propios', 'Alcance acordado antes de empezar'],
-        'message' => 'Hola OnlyFive, quiero conversar sobre una página personalizada para mi barbería.',
+        'message' => 'Hola Solisweb, quiero conversar sobre una página personalizada para mi barbería.',
     ],
 ];
 $faqItems = [
@@ -45,15 +45,15 @@ $faqItems = [
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="OnlyFive crea páginas web para barberías: servicios, perfiles, horarios y reservas en un solo lugar.">
+  <meta name="description" content="Solisweb crea páginas web para barberías: servicios, perfiles, horarios y reservas en un solo lugar.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_PE">
-  <meta property="og:site_name" content="OnlyFive">
-  <meta property="og:title" content="OnlyFive — Webs para barberías">
+  <meta property="og:site_name" content="Solisweb">
+  <meta property="og:title" content="Solisweb — Webs para barberías">
   <meta property="og:description" content="Una página para mostrar tus servicios, presentar a tus barberos y facilitar las reservas de tus clientes.">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#f3eee5">
-  <title>OnlyFive — Webs para barberías</title>
+  <title>Solisweb — Webs para barberías</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -62,7 +62,7 @@ $faqItems = [
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
     <nav class="nav wrap brand-nav" aria-label="Navegación principal">
-      <a class="brand-lockup" href="#inicio" aria-label="OnlyFive, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Web para barberías</small></span></a>
+      <a class="brand-lockup" href="#inicio" aria-label="Solisweb, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>SOLISWEB</strong><small>Web para barberías</small></span></a>
       <div class="nav-menu"><a class="nav-link" href="#inicio" aria-current="page">Inicio</a><a class="nav-link" href="plantillas.php">Plantillas</a><a class="nav-link" href="#beneficios">Beneficios</a><a class="nav-link" href="#paquetes">Opciones</a></div>
       <a class="button button-dark nav-cta" href="contacto.php">Solicitar información <span aria-hidden="true">↗</span></a>
     </nav>
@@ -151,7 +151,7 @@ $faqItems = [
       <div class="home-contact-copy"><p class="eyebrow">¿Listo para empezar?</p><h2>Tu próxima<br>gran idea<br><em>empieza aquí.</em></h2><p>Cuéntanos qué necesita tu barbería. Te ayudamos a elegir el estilo y las funciones.</p><a class="button button-light" href="contacto.php">Solicitar información <span aria-hidden="true">→</span></a></div>
     </section>
   </main>
-  <footer class="site-footer"><div class="wrap site-footer-main"><a class="brand-lockup footer-lockup" href="#inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Soluciones web para barberías</small></span></a><div><h2>Enlaces rápidos</h2><a href="#inicio">Inicio</a><a href="plantillas.php">Plantillas</a><a href="contacto.php">Contacto</a></div><div><h2>Hablemos</h2><a href="contacto.php">Solicita información</a><span>Lima, Perú</span></div><div><h2>Tu proyecto</h2><p>Una página clara, cercana y pensada para crecer con tu negocio.</p></div></div><div class="wrap site-footer-bottom"><span>© <?= date('Y') ?> OnlyFive</span><a href="privacidad.php">Privacidad</a><span>Soluciones web para barberías</span></div></footer>
+  <footer class="site-footer"><div class="wrap site-footer-main"><a class="brand-lockup footer-lockup" href="#inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>SOLISWEB</strong><small>Soluciones web para barberías</small></span></a><div><h2>Enlaces rápidos</h2><a href="#inicio">Inicio</a><a href="plantillas.php">Plantillas</a><a href="contacto.php">Contacto</a></div><div><h2>Hablemos</h2><a href="contacto.php">Solicita información</a><span>Lima, Perú</span></div><div><h2>Tu proyecto</h2><p>Una página clara, cercana y pensada para crecer con tu negocio.</p></div></div><div class="wrap site-footer-bottom"><span>© <?= date('Y') ?> Solisweb</span><a href="privacidad.php">Privacidad</a><span>Soluciones web para barberías</span></div></footer>
   <div class="checker" aria-hidden="true"></div>
 </body>
 </html>

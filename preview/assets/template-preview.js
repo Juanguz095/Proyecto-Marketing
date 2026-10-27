@@ -47,11 +47,11 @@
     const frame = detail.querySelector('[data-template-frame]');
     frame.src = `${detail.dataset.previewPath}?plantilla=${encodeURIComponent(slug)}`;
     frame.title = `Vista previa de ${template.name}`;
-    document.title = `${template.name} · Plantillas OnlyFive`;
+    document.title = `${template.name} · Plantillas Solisweb`;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = template.description;
     const socialTitle = document.querySelector('meta[property="og:title"]');
-    if (socialTitle) socialTitle.content = `${template.name} · Plantillas OnlyFive`;
+    if (socialTitle) socialTitle.content = `${template.name} · Plantillas Solisweb`;
     const socialDescription = document.querySelector('meta[property="og:description"]');
     if (socialDescription) socialDescription.content = template.description;
   }

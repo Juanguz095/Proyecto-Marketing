@@ -91,8 +91,8 @@ function page_message(string $title, string $message, bool $success = false, ?in
     $statusLabel = $success ? 'Solicitud recibida' : 'Revisa tus datos';
     echo <<<HTML
     <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{$safeTitle} · OnlyFive</title><link rel="stylesheet" href="assets/styles.css"></head>
-    <body><main class="message-page"><section class="message-card"><a class="wordmark" href="index.php">ONLYFIVE</a>
+    <title>{$safeTitle} · Solisweb</title><link rel="stylesheet" href="assets/styles.css"></head>
+    <body><main class="message-page"><section class="message-card"><a class="wordmark" href="index.php">SOLISWEB</a>
     <span class="eyebrow">{$statusLabel}</span>
     <h1>{$safeTitle}</h1><p>{$safeMessage}</p><a class="button" href="barberia.php?b=barberia-demo#reserva">Volver a la página</a>
     </section></main></body></html>

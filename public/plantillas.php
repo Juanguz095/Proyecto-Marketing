@@ -9,15 +9,15 @@ $templates = require __DIR__ . '/../app/template_catalog.php';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explora las plantillas de OnlyFive y mira cómo podría verse la página de tu barbería.">
+  <meta name="description" content="Explora las plantillas de Solisweb y mira cómo podría verse la página de tu barbería.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_PE">
-  <meta property="og:site_name" content="OnlyFive">
-  <meta property="og:title" content="Plantillas para barberías · OnlyFive">
+  <meta property="og:site_name" content="Solisweb">
+  <meta property="og:title" content="Plantillas para barberías · Solisweb">
   <meta property="og:description" content="Compara estilos clásicos, urbanos y minimalistas para la página de tu barbería.">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#f3eee5">
-  <title>Plantillas para barberías · OnlyFive</title>
+  <title>Plantillas para barberías · Solisweb</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
@@ -26,7 +26,7 @@ $templates = require __DIR__ . '/../app/template_catalog.php';
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
     <nav class="nav wrap brand-nav" aria-label="Navegación principal">
-      <a class="brand-lockup" href="index.php" aria-label="OnlyFive, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Web para barberías</small></span></a>
+      <a class="brand-lockup" href="index.php" aria-label="Solisweb, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>SOLISWEB</strong><small>Web para barberías</small></span></a>
       <div class="nav-menu"><a class="nav-link" href="index.php">Inicio</a><a class="nav-link" href="plantillas.php" aria-current="page">Plantillas</a><a class="nav-link" href="#incluye">Qué incluyen</a><a class="nav-link" href="contacto.php">Contacto</a></div>
       <a class="button button-dark nav-cta" href="contacto.php">Solicitar información <span aria-hidden="true">↗</span></a>
     </nav>
@@ -79,7 +79,7 @@ $templates = require __DIR__ . '/../app/template_catalog.php';
 
     <section class="templates-contact wrap"><div><p class="eyebrow">¿No sabes cuál elegir?</p><h2>Te ayudamos a encontrar<br><em>tu estilo.</em></h2><p>Cuéntanos sobre tu barbería y te recomendamos una propuesta para comenzar.</p></div><a class="button button-dark" href="contacto.php">Solicitar información <span aria-hidden="true">↗</span></a></section>
   </main>
-  <footer class="site-footer"><div class="wrap site-footer-main"><a class="brand-lockup footer-lockup" href="index.php"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Soluciones web para barberías</small></span></a><div><h2>Explora</h2><a href="index.php">Inicio</a><a href="#catalogo">Plantillas</a><a href="#incluye">Qué incluyen</a></div><div><h2>Contacto</h2><a href="contacto.php">Solicitar información</a><span>Lima, Perú</span></div><div><h2>Elige con calma</h2><p>Abre cada demo, compara los estilos y cuéntanos cuál te gusta.</p></div></div><div class="wrap site-footer-bottom"><span>© <?= date('Y') ?> OnlyFive</span><a href="privacidad.php">Privacidad</a><a href="index.php">Volver al inicio</a></div></footer>
+  <footer class="site-footer"><div class="wrap site-footer-main"><a class="brand-lockup footer-lockup" href="index.php"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>SOLISWEB</strong><small>Soluciones web para barberías</small></span></a><div><h2>Explora</h2><a href="index.php">Inicio</a><a href="#catalogo">Plantillas</a><a href="#incluye">Qué incluyen</a></div><div><h2>Contacto</h2><a href="contacto.php">Solicitar información</a><span>Lima, Perú</span></div><div><h2>Elige con calma</h2><p>Abre cada demo, compara los estilos y cuéntanos cuál te gusta.</p></div></div><div class="wrap site-footer-bottom"><span>© <?= date('Y') ?> Solisweb</span><a href="privacidad.php">Privacidad</a><a href="index.php">Volver al inicio</a></div></footer>
   <div class="checker" aria-hidden="true"></div>
 </body>
 </html>

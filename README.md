@@ -1,10 +1,10 @@
-# OnlyFive · páginas y reservas para barberías
+# Solisweb · páginas y reservas para barberías
 
-Aplicación PHP y MySQL para mostrar una barbería, recibir solicitudes de cita y administrar su agenda. La página conserva el estilo visual de OnlyFive y se adapta a celulares.
+Aplicación PHP y MySQL para mostrar una barbería, recibir solicitudes de cita y administrar su agenda. La página conserva el estilo visual de Solisweb y se adapta a celulares.
 
 ## Funciones
 
-- Página pública de OnlyFive en `public/index.php`.
+- Página pública de Solisweb en `public/index.php`.
 - Galería propia de tres plantillas en `public/plantillas.php`, con fichas descriptivas y una muestra incrustada de cada diseño en `public/detalle-plantilla.php`.
 - Secciones de paquetes con cotización personalizada y preguntas frecuentes; no se muestran precios inventados.
 - Página de la barbería en `public/barberia.php?b=barberia-demo`.
@@ -72,7 +72,7 @@ export WHATSAPP_COUNTRY_CODE=51
 
 No guardes el hash ni una contraseña en GitHub. En producción, configura estas variables en el panel seguro de tu hosting. El panel queda deshabilitado si faltan las credenciales.
 
-Para configurar el teléfono de contacto del sitio comercial de OnlyFive, opcionalmente define `ONLYFIVE_WHATSAPP` con el número internacional, solo con dígitos. El WhatsApp de la barbería se edita desde **Panel → Configuración**. `WHATSAPP_COUNTRY_CODE` se usa para completar teléfonos locales de nueve dígitos en los enlaces de notificación; el valor predeterminado es `51` (Perú).
+Para configurar el teléfono de contacto del sitio comercial de Solisweb, opcionalmente define `SOLISWEB_WHATSAPP` con el número internacional, solo con dígitos. En instalaciones anteriores también se admite `ONLYFIVE_WHATSAPP`. El WhatsApp de la barbería se edita desde **Panel → Configuración**. `WHATSAPP_COUNTRY_CODE` se usa para completar teléfonos locales de nueve dígitos en los enlaces de notificación; el valor predeterminado es `51` (Perú).
 
 ## Ejecutar localmente
 
@@ -84,7 +84,7 @@ php -S 127.0.0.1:8000 -t public
 
 Abre estas direcciones:
 
-- `http://127.0.0.1:8000/` — página de OnlyFive.
+- `http://127.0.0.1:8000/` — página de Solisweb.
 - `http://127.0.0.1:8000/plantillas.php` — galería de diseños y vistas de ejemplo.
 - `http://127.0.0.1:8000/detalle-plantilla.php?plantilla=urbana` — ficha con descripción y muestra incrustada de una plantilla.
 - `http://127.0.0.1:8000/contacto.php` — página de contacto y solicitud de cotización.

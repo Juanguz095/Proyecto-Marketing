@@ -87,12 +87,12 @@ if (admin_is_authenticated()) {
     <html lang="es">
     <head>
       <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="theme-color" content="#f3eee5"><title>Reservas · Administración OnlyFive</title>
+      <meta name="theme-color" content="#f3eee5"><title>Reservas · Administración Solisweb</title>
       <link rel="stylesheet" href="../assets/styles.css">
     </head>
     <body class="admin-page">
       <a class="skip-link" href="#contenido">Saltar al contenido</a>
-      <header class="admin-header"><div class="wrap admin-header-inner"><a class="wordmark admin-wordmark" href="index.php">ONLYFIVE</a><div><span>Panel de <?= e($shop['nombre'] ?? 'barbería') ?></span><form action="logout.php" method="post"><input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>"><button class="admin-link-button" type="submit">Cerrar sesión</button></form></div></div></header>
+      <header class="admin-header"><div class="wrap admin-header-inner"><a class="wordmark admin-wordmark" href="index.php">SOLISWEB</a><div><span>Panel de <?= e($shop['nombre'] ?? 'barbería') ?></span><form action="logout.php" method="post"><input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>"><button class="admin-link-button" type="submit">Cerrar sesión</button></form></div></div></header>
       <main class="wrap admin-main" id="contenido">
         <div class="admin-title-row"><div><p class="eyebrow">Agenda y atención</p><h1>Reservas</h1><p>Gestiona las solicitudes y avisa al cliente desde WhatsApp.</p></div><a class="button button-outline" href="configuracion.php">Configurar la página <span aria-hidden="true">↗</span></a></div>
         <?php if (!empty($dashboardError)): ?><div class="admin-alert" role="alert"><?= e($dashboardError) ?></div><?php else: ?>
@@ -145,7 +145,7 @@ if (admin_is_authenticated()) {
           <?php endif; ?>
         <?php endif; ?>
       </main>
-      <footer class="admin-footer wrap"><a href="../index.php">Volver a OnlyFive</a><a href="../privacidad.php?b=<?= e($shop['slug'] ?? 'barberia-demo') ?>">Aviso de privacidad</a></footer>
+      <footer class="admin-footer wrap"><a href="../index.php">Volver a Solisweb</a><a href="../privacidad.php?b=<?= e($shop['slug'] ?? 'barberia-demo') ?>">Aviso de privacidad</a></footer>
     </body>
     </html>
     <?php
@@ -156,13 +156,13 @@ if (admin_is_authenticated()) {
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3eee5"><title>Acceso · OnlyFive</title>
+  <meta name="theme-color" content="#f3eee5"><title>Acceso · Solisweb</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body class="admin-page">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <main class="admin-login-shell" id="contenido">
-    <a class="wordmark admin-login-wordmark" href="../index.php">ONLYFIVE</a>
+    <a class="wordmark admin-login-wordmark" href="../index.php">SOLISWEB</a>
     <section class="admin-login-card">
       <p class="eyebrow">Acceso privado</p><h1>Administrar<br>reservas.</h1>
       <p>Ingresa con la cuenta de administración configurada para esta instalación.</p>
@@ -175,7 +175,7 @@ if (admin_is_authenticated()) {
           <button class="button button-dark" type="submit" name="login" value="1">Entrar <span aria-hidden="true">↗</span></button>
         </form>
       <?php endif; ?>
-      <a class="admin-back-link" href="../index.php">Volver a OnlyFive</a>
+      <a class="admin-back-link" href="../index.php">Volver a Solisweb</a>
     </section>
   </main>
 </body>

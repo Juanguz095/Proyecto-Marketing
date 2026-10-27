@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS admin_login_attempts (
 -- Datos de muestra: reemplázalos por la información real antes de usar la web.
 INSERT INTO barberias (id, nombre, slug, descripcion, direccion, whatsapp)
 VALUES (1, 'Barbería Demo', 'barberia-demo',
-        'Contenido de ejemplo para probar la plantilla de OnlyFive.',
+        'Contenido de ejemplo para probar la plantilla de Solisweb.',
         'Lima, Perú', NULL)
 ON DUPLICATE KEY UPDATE nombre = VALUES(nombre);
 

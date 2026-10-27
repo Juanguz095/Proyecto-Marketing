@@ -50,8 +50,8 @@ try {
 
 if (!empty($dbError)):
 ?>
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Configura la base de datos · OnlyFive</title><link rel="stylesheet" href="assets/styles.css"></head>
-<body><main class="message-page"><section class="message-card"><a class="wordmark" href="index.php">ONLYFIVE</a><p class="eyebrow">Falta un paso de configuración</p><h1>Conecta MySQL</h1><p>La página ya está lista. Sigue el README para crear la base de datos y cargar los datos de muestra.</p><a class="button button-dark" href="index.php">Volver al inicio</a></section></main></body></html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Configura la base de datos · Solisweb</title><link rel="stylesheet" href="assets/styles.css"></head>
+<body><main class="message-page"><section class="message-card"><a class="wordmark" href="index.php">SOLISWEB</a><p class="eyebrow">Falta un paso de configuración</p><h1>Conecta MySQL</h1><p>La página ya está lista. Sigue el README para crear la base de datos y cargar los datos de muestra.</p><a class="button button-dark" href="index.php">Volver al inicio</a></section></main></body></html>
 <?php
 exit;
 endif;
@@ -101,7 +101,7 @@ if ($address !== '' && !$genericAddress) {
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="business.business">
   <meta property="og:locale" content="es_PE">
-  <meta property="og:site_name" content="OnlyFive">
+  <meta property="og:site_name" content="Solisweb">
   <meta property="og:title" content="<?= e($shop['nombre']) ?> · Barbería">
   <meta property="og:description" content="Servicios, equipo y reservas de <?= e($shop['nombre']) ?>.">
   <meta name="twitter:card" content="summary">

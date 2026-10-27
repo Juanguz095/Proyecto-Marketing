@@ -275,12 +275,12 @@ $dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'S
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3eee5"><title>Configuración · OnlyFive</title>
+  <meta name="theme-color" content="#f3eee5"><title>Configuración · Solisweb</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body class="admin-page">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="admin-header"><div class="wrap admin-header-inner"><a class="wordmark admin-wordmark" href="index.php">ONLYFIVE</a><div><span>Panel de <?= e($shop['nombre'] ?? 'barbería') ?></span><a class="admin-link-button" href="index.php">Volver a reservas</a></div></div></header>
+  <header class="admin-header"><div class="wrap admin-header-inner"><a class="wordmark admin-wordmark" href="index.php">SOLISWEB</a><div><span>Panel de <?= e($shop['nombre'] ?? 'barbería') ?></span><a class="admin-link-button" href="index.php">Volver a reservas</a></div></div></header>
   <main class="wrap admin-main" id="contenido">
     <div class="admin-title-row"><div><p class="eyebrow">Tu negocio, tu información</p><h1>Configuración</h1><p>Actualiza lo que tus clientes ven en la página.</p></div><a class="button button-outline" href="../barberia.php?b=<?= e($shop['slug'] ?? 'barberia-demo') ?>" target="_blank" rel="noopener">Ver página pública ↗</a></div>
     <?php if ($error !== ''): ?><p class="admin-alert" role="alert"><?= e($error) ?></p><?php endif; ?>

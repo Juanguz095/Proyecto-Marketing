@@ -27,12 +27,12 @@ $previewUrl = 'barberia.php?b=barberia-demo&plantilla=' . rawurlencode($template
   <meta name="description" content="<?= e($template['description']) ?>">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_PE">
-  <meta property="og:site_name" content="OnlyFive">
-  <meta property="og:title" content="<?= e($template['name']) ?> · Plantillas OnlyFive">
+  <meta property="og:site_name" content="Solisweb">
+  <meta property="og:title" content="<?= e($template['name']) ?> · Plantillas Solisweb">
   <meta property="og:description" content="<?= e($template['description']) ?>">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#f3eee5">
-  <title><?= e($template['name']) ?> · Plantillas OnlyFive</title>
+  <title><?= e($template['name']) ?> · Plantillas Solisweb</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
   <script src="assets/template-preview.js" defer></script>
@@ -42,7 +42,7 @@ $previewUrl = 'barberia.php?b=barberia-demo&plantilla=' . rawurlencode($template
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="inicio">
     <nav class="nav wrap brand-nav" aria-label="Navegación principal">
-      <a class="brand-lockup" href="index.php" aria-label="OnlyFive, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>ONLYFIVE</strong><small>Web para barberías</small></span></a>
+      <a class="brand-lockup" href="index.php" aria-label="Solisweb, inicio"><span class="brand-symbol" aria-hidden="true">✂</span><span><strong>SOLISWEB</strong><small>Web para barberías</small></span></a>
       <div class="nav-menu"><a class="nav-link" href="index.php">Inicio</a><a class="nav-link" href="plantillas.php" aria-current="page">Plantillas</a><a class="nav-link" href="contacto.php">Contacto</a></div>
       <a class="button button-dark nav-cta" href="contacto.php">Solicitar información <span aria-hidden="true">↗</span></a>
     </nav>
@@ -69,7 +69,7 @@ $previewUrl = 'barberia.php?b=barberia-demo&plantilla=' . rawurlencode($template
         <p>La muestra está dentro de esta página. Desplázate para recorrer el diseño; los datos son de demostración.</p>
       </div>
       <div class="template-demo-shell">
-        <div class="template-demo-label"><span>ONLYFIVE · MUESTRA INTERACTIVA</span><span><?= e($template['number']) ?> / 03</span></div>
+        <div class="template-demo-label"><span>SOLISWEB · MUESTRA INTERACTIVA</span><span><?= e($template['number']) ?> / 03</span></div>
         <iframe class="template-demo-frame" data-template-frame src="<?= e($previewUrl) ?>" title="Vista previa de <?= e($template['name']) ?>" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </section>
@@ -78,7 +78,7 @@ $previewUrl = 'barberia.php?b=barberia-demo&plantilla=' . rawurlencode($template
       <a class="button button-dark" href="contacto.php">Hablemos de tu proyecto <span aria-hidden="true">↗</span></a>
     </section>
   </main>
-  <footer class="footer wrap"><a class="footer-brand" href="index.php">ONLYFIVE</a><span>Soluciones web para barberías · Lima, Perú</span><a href="plantillas.php">Ver todas las plantillas ↗</a></footer>
+  <footer class="footer wrap"><a class="footer-brand" href="index.php">SOLISWEB</a><span>Soluciones web para barberías · Lima, Perú</span><a href="plantillas.php">Ver todas las plantillas ↗</a></footer>
   <div class="checker" aria-hidden="true"></div>
 </body>
 </html>
